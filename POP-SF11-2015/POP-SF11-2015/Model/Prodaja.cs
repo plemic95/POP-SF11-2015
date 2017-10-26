@@ -8,7 +8,6 @@ namespace POP_SF11_2015.Model
 {
     public class Prodaja
     {
-    
         public int Id { get; set; }
 
         public List<Namestaj> NamestajZaProdaju { get; set; }
@@ -21,7 +20,7 @@ namespace POP_SF11_2015.Model
 
         public List<DodatnaUsluga> DodatneUsluge { get; set; }
 
-        public double PDV { get; set; }
+        public const double PDV = 0.02;
 
         public double UkupnaCena { get; set; }
     }

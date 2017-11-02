@@ -1,5 +1,6 @@
 ﻿using POP_SF11_2015.Model;
 using POP_SF11_2015.Tests;
+using POP_SF11_2015.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -109,9 +110,68 @@ namespace POP_SF11_2015
                 Cena = 555,
             };
 
-            Namestaj.Add(n1);
-            Namestaj.Add(n2);
-            Namestaj.Add(n3);
+            //var listaTipovaNamestaja = new List<TipNamestaja>();
+            //listaTipovaNamestaja.Add(tp1);
+            //listaTipovaNamestaja.Add(tp2);
+
+            //GenericSerializer.Serialize<TipNamestaja>("tipovi_namestaja.xml", listaTipovaNamestaja);
+
+            var listaTipovaNamestaja = Projekat.Instance.TipoviNamestaja;
+
+            var noviTipNamestaja = new TipNamestaja()
+            {
+                Id = listaTipovaNamestaja.Count + 1,
+                Naziv = "Ugaona "
+            };
+
+            listaTipovaNamestaja.Add(noviTipNamestaja);
+            Projekat.Instance.TipoviNamestaja = listaTipovaNamestaja;
+
+            Console.WriteLine("Finished serialization...");
+            //DELETE
+            //var listaTipovaNamestaja = Projekat.Instance.TipoviNamestaja;
+
+
+            //listaTipovaNamestaja.RemoveAt();
+            //Projekat.Instance.TipoviNamestaja = listaTipovaNamestaja;
+
+            //Console.WriteLine("Finished serialization...");
+
+
+            //var listaNamestaja = new List<Namestaj>();
+            //listaNamestaja.Add(n1);
+            //listaNamestaja.Add(n2);
+
+            //GenericSerializer.Serialize<Namestaj>("namestaj.xml", listaNamestaja);
+
+            //listaNamestaja = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
+
+            //Console.WriteLine("Finished serialization...");
+
+            //Console.ReadLine();
+
+            //Namestaj.Add(n1);
+            //Namestaj.Add(n2);
+            //Namestaj.Add(n3);
+
+
+            ///// ISPIS Namestaja i TIPA Tipa Namestaja
+           // var listaNamestaja = Projekat.Instance.Namestaj;
+           // var prviNamestaj = listaNamestaja[0];
+
+           // var listaTipovaNamestaja = Projekat.Instance.TipoviNamestaja;
+          //  TipNamestaja = trazeniTipNamestaja = null;
+           // foreach (var tipNamestaja in listaTipovaNamestaja)
+          //  {
+            //    if(tipNamestaja.Id == prviNamestaj.TipNamestajaId)
+             //   {
+              //      trazeniTipNamestaja = tipNamestaja;
+               //     break;
+
+              //  }
+           // }
+
+
             TipoviNamestaja.Add(tp1);
             TipoviNamestaja.Add(tp2);
             Korisnik.Add(k1);

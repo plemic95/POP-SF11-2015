@@ -18,7 +18,7 @@ namespace POP_SF11_2015.Model
 
         public int KolicinaUMagacinu { get; set; }
 
-        public TipNamestaja TipNamestaja { get; set; }
+        public int TipNamestajaId { get; set; }
 
         public Akcija Akcija { get; set; }
 

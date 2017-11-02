@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Namestaj>
+    <Id>1</Id>
+    <Naziv>Ekstra krevet</Naziv>
+    <Sifra>KRO1995SOC</Sifra>
+    <Cena>777</Cena>
+    <KolicinaUMagacinu>100</KolicinaUMagacinu>
+    <TipNamestaja>
+      <Id>1</Id>
+      <Naziv>Krevet</Naziv>
+      <Obrisan>false</Obrisan>
+    </TipNamestaja>
+    <Obrisan>false</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>2</Id>
+    <Naziv>Stolica</Naziv>
+    <Sifra>STO88GC</Sifra>
+    <Cena>555</Cena>
+    <KolicinaUMagacinu>105</KolicinaUMagacinu>
+    <TipNamestaja>
+      <Id>1</Id>
+      <Naziv>Krevet</Naziv>
+      <Obrisan>false</Obrisan>
+    </TipNamestaja>
+    <Obrisan>false</Obrisan>
+  </Namestaj>
+</ArrayOfNamestaj>

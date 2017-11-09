@@ -21,7 +21,7 @@ namespace POP_SF11_2015.Utils
                     return (List<T>)serializer.Deserialize(sr);
                 };
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 throw new Exception($"Greska prilkom ucitavanja datoteke: {fileName} sa diska");
             }

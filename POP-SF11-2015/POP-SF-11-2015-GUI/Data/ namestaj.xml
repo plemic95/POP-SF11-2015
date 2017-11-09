@@ -6,11 +6,7 @@
     <Sifra>KRO1995SOC</Sifra>
     <Cena>777</Cena>
     <KolicinaUMagacinu>100</KolicinaUMagacinu>
-    <TipNamestaja>
-      <Id>1</Id>
-      <Naziv>Krevet</Naziv>
-      <Obrisan>false</Obrisan>
-    </TipNamestaja>
+    <TipNamestajaId>1</TipNamestajaId>
     <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -19,11 +15,7 @@
     <Sifra>STO88GC</Sifra>
     <Cena>555</Cena>
     <KolicinaUMagacinu>105</KolicinaUMagacinu>
-    <TipNamestaja>
-      <Id>1</Id>
-      <Naziv>Krevet</Naziv>
-      <Obrisan>false</Obrisan>
-    </TipNamestaja>
+    <TipNamestajaId>2</TipNamestajaId>
     <Obrisan>false</Obrisan>
   </Namestaj>
 </ArrayOfNamestaj>

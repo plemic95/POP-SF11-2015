@@ -32,13 +32,13 @@ namespace POP_SF11_2015.Model
         {
             get
             {
-                namestaj = GenericSerializer.Deserialize<Namestaj>("namestaj.xml");
+                namestaj = GenericSerializer.Deserialize<Namestaj>("namestaj.xml"); 
                 return namestaj;
             }
             set
             {
                 namestaj = value;
-                GenericSerializer.Serialize<TipNamestaja>("namestaj.xml", tipoviNamestaja);
+                GenericSerializer.Serialize<Namestaj>("namestaj.xml", namestaj);
             }
         }
     }

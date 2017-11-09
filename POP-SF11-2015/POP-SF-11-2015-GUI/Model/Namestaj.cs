@@ -23,5 +23,24 @@ namespace POP_SF11_2015.Model
         public Akcija Akcija { get; set; }
 
         public bool Obrisan { get; set; }
+
+        public override string ToString()
+        {
+            return $"{ Naziv}, { Cena}, { TipNamestaja.GetById(TipNamestajaId).Naziv}";
+        }
+
+        public static Namestaj GetById(int id)
+        {
+            foreach (var namestaj in Projekat.Instance.Namestaj)
+            {
+                if (namestaj.Id == id)
+                {
+                    return namestaj;
+                }
+            }
+            return null;
+
+            //return Projekat.Instance.TipoviNamestaja.SingleOrDefault(x => x.Id == id) ;
+        }
     }
 }

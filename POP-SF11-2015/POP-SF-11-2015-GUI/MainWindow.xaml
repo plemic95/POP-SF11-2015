@@ -1,0 +1,19 @@
+﻿<Window x:Class="POP_SF_11_2015_GUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_11_2015_GUI"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="127*"/>
+            <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+        <ListBox Grid.Row="0" x:Name="lbNamestaj" HorizontalAlignment="Left" Height="Auto" Margin="61,33,0,0" VerticalAlignment="Top" Width="525"/>
+        <Button Grid.Row="1" Width="90" Height="30" HorizontalAlignment="Center" Name="btnDodajNamestaj" Click="btnDodajNamestaj_Click">Dodaj namestaj</Button>
+        <Button Grid.Row="1" Width="90" Height="30" HorizontalAlignment="Left" Name="btnIzmeniNamestaj" Click="btnIzmeniNamestaj_Click">Izmeni namestaj</Button>
+        <Button Grid.Row="1" Width="90" Height="30" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click">Izlaz</Button>
+    </Grid>
+</Window>

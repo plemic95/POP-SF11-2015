@@ -26,6 +26,5 @@ namespace POP_SF11_2015.Model
 
         public string BrojZiroRacuna { get; set; }
 
-        public bool Obrisan { get; set; }
     }
 }

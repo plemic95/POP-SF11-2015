@@ -14,6 +14,11 @@ namespace POP_SF11_2015.Model
 
         public bool Obrisan { get; set; }
 
+        public override string ToString()
+        {
+            return Naziv;
+        }
+
         public static TipNamestaja GetById(int id)
         {
             foreach (var tipNamestaja in Projekat.Instance.TipoviNamestaja)

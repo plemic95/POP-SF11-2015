@@ -55,11 +55,60 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GUI\AkcijeWindow.xaml.cs">
+      <DependentUpon>AkcijeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\DodatneUslugeWindow.xaml.cs">
+      <DependentUpon>DodatneUslugeWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\KorisniciWindow.xaml.cs">
+      <DependentUpon>KorisniciWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\NamestajWindow.xaml.cs">
       <DependentUpon>NamestajWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\NamestajEditWindow.xaml.cs">
+      <DependentUpon>NamestajEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ProdajaWindow.xaml.cs">
+      <DependentUpon>ProdajaWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\SalonEditWindow.xaml.cs">
+      <DependentUpon>SalonEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LoginWindow.xaml.cs">
+      <DependentUpon>LoginWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
+    <Page Include="GUI\AkcijeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\DodatneUslugeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\KorisniciWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\NamestajWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="GUI\NamestajEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\ProdajaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\SalonEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="LoginWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -112,8 +161,23 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\ namestaj.xml" />
-    <Resource Include="Data\ tipovi_namestaja.xml" />
+    <Resource Include="Data\namestaj.xml" />
+    <Resource Include="Data\tipovi_namestaja.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\korisnici.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\dodatne_usluge.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\loginSalon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\mainSalon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\salon.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

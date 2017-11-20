@@ -1,4 +1,5 @@
-﻿using POP_SF11_2015.Model;
+﻿using POP_SF_11_2015_GUI.GUI;
+using POP_SF11_2015.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,38 +12,66 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace POP_SF_11_2015_GUI.GUI
+namespace POP_SF_11_2015_GUI
 {
     /// <summary>
-    /// Interaction logic for NamestajWindow.xaml
+    /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class NamestajWindow : Window
     {
 
-        public enum TipOperacije
-        {
-            DODAVANJE,
-            IZMENA
-        }
+        private Korisnik ulogovaniKorisnik;
 
-        private Namestaj namestaj;
-        private TipOperacije operacija;
-
-        public NamestajWindow(Namestaj namestaj, TipOperacije operacija)
+        public NamestajWindow(Korisnik ulogovaniKorisnik)
         {
             InitializeComponent();
+            OsveziPrikaz();
+            this.ulogovaniKorisnik = ulogovaniKorisnik;
 
-            InicijalizujPodatke(namestaj, operacija);
+          //  if (ulogovaniKorisnik.TipKorisnika.Oznaka != 1)
+          //  {
+          //      bKorisnici.IsEnabled = false;
+          //  }
+
         }
 
-        private void InicijalizujPodatke(Namestaj namestaj, TipOperacije operacija)
-        {
-            this.namestaj = namestaj;
-            this.operacija = operacija;
+        //public MainWindow()
+        //{
+        //    InitializeComponent();
+        //
+        //    OsveziPrikaz();
+        //}
 
-            tbNaziv.Text = namestaj.Naziv;
+        private void OsveziPrikaz()
+        {
+
+            lbNamestaj.Items.Clear();
+
+            foreach (var namestaj in Projekat.Instance.Namestaj)
+            {
+                if(namestaj.Obrisan == false)
+                {
+                    lbNamestaj.Items.Add(namestaj);
+                }
+            }
+
+            lbNamestaj.SelectedIndex = 0;
+        }
+
+        private void btnDodajNamestaj_Click(object sender, RoutedEventArgs e)
+        {
+            var prazanNamestaj = new Namestaj()
+            {
+                Naziv = ""
+            };
+
+            var namestajProzor = new NamestajEditWindow(prazanNamestaj, NamestajEditWindow.TipOperacije.DODAVANJE);
+            namestajProzor.ShowDialog();
+
+            OsveziPrikaz();
         }
 
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
@@ -50,38 +79,37 @@ namespace POP_SF_11_2015_GUI.GUI
             Close();
         }
 
-        private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
+        private void btnIzmeniNamestaj_Click(object sender, RoutedEventArgs e)
         {
+            var izabraniNamestaj = (Namestaj)lbNamestaj.SelectedItem;
 
+            var namestajProzor = new NamestajEditWindow(izabraniNamestaj, NamestajEditWindow.TipOperacije.IZMENA);
+            namestajProzor.ShowDialog();
+
+            OsveziPrikaz();
+        }
+
+        private void btnObrisi_Click(object sender, RoutedEventArgs e)
+        {
+            var izabraniNamestaj = (Namestaj)lbNamestaj.SelectedItem;
             var listaNamestaja = Projekat.Instance.Namestaj;
-
-            switch (operacija)
+            //Namestaj izabraniNamestaj = (Namestaj)lbNamestaj.SelectedItem;
+            if (MessageBox.Show($"Da li ste sigurni da zelite da izbrisete: { izabraniNamestaj.Naziv}?", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                case TipOperacije.DODAVANJE:
-                    namestaj = new Namestaj()
+                Namestaj namestaj = null;
+                foreach (var n in listaNamestaja)
+                {
+                    if (n.Id == izabraniNamestaj.Id)
                     {
-                        Id = listaNamestaja.Count + 1,
-                        Naziv = tbNaziv.Text
-                    };
-                    break;
-                case TipOperacije.IZMENA:
-                    var namestajZaIzmenu = listaNamestaja.SingleOrDefault(x => x.Id == namestaj.Id);
-                   // var namestajZaIzmenu = Namestaj.GetById(namestaj.Id);
-                    namestajZaIzmenu.Naziv = tbNaziv.Text;
-                    break;
+                        namestaj = n;
+                    }
+                }
+                namestaj.Obrisan = true;
+
+                Projekat.Instance.Namestaj = listaNamestaja;
+
+                OsveziPrikaz();
             }
-            string naziv = tbNaziv.Text;
-
-        //    namestaj = new Namestaj()
-        //    {
-        //        Id = listaNamestaja.Count + 1,
-        //        Naziv = naziv
-        //    };
-
-        //    listaNamestaja.Add(namestaj);
-            Projekat.Instance.Namestaj = listaNamestaja;
-
-            Close();
         }
     }
 }

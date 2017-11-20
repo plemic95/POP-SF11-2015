@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfSalon xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Salon>
+    <Id>1</Id>
+    <Naziv>Forma FTNale</Naziv>
+    <Adresa>Trg Dositeja Obradovica 6</Adresa>
+    <Telefon>061/2737551</Telefon>
+    <Email>milanplemicyahoo.com</Email>
+    <Websajt>http://www.ftn.uns.ac.rs</Websajt>
+    <PIB>123415235</PIB>
+    <MaticniBroj>23706</MaticniBroj>
+    <BrojZiroRacuna>840-00017666-45</BrojZiroRacuna>
+  </Salon>
+</ArrayOfSalon>

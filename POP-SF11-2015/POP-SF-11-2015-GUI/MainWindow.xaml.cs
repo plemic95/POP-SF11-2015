@@ -22,50 +22,69 @@ namespace POP_SF_11_2015_GUI
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+
+        private Korisnik ulogovaniKorisnik;
+
+        public MainWindow(Korisnik ulogovaniKorisnik)
         {
             InitializeComponent();
+            this.ulogovaniKorisnik = ulogovaniKorisnik;
 
-            OsveziPrikaz();
+            //  if (ulogovaniKorisnik.TipKorisnika.Oznaka != 1)
+            //  {
+            //      bKorisnici.IsEnabled = false;
+            //  }
+
+            //public MainWindow()
+            //{
+            //    InitializeComponent();
+            //
+            //    OsveziPrikaz();
+            //}
         }
 
-        private void OsveziPrikaz()
+
+        private void btnNamestaj_Click(object sender, RoutedEventArgs e)
         {
-
-            lbNamestaj.Items.Clear();
-
-            foreach (var namestaj in Projekat.Instance.Namestaj)
-            {
-                lbNamestaj.Items.Add(namestaj);
-            }
-
-            lbNamestaj.SelectedIndex = 0;
+            NamestajWindow nw = new NamestajWindow(this.ulogovaniKorisnik);
+            nw.Show();
+            this.Close();
         }
 
-        private void btnDodajNamestaj_Click(object sender, RoutedEventArgs e)
+        private void btnKorisnici_Click(object sender, RoutedEventArgs e)
         {
-            var prazanNamestaj = new Namestaj()
-            {
-                Naziv = ""
-            };
+            KorisniciWindow kw = new KorisniciWindow(this.ulogovaniKorisnik);
+            kw.Show();
+            this.Close();
 
-            var namestajProzor = new NamestajWindow(prazanNamestaj, NamestajWindow.TipOperacije.DODAVANJE);
-            namestajProzor.ShowDialog();
         }
 
-        private void btnIzlaz_Click(object sender, RoutedEventArgs e)
+        private void btnAkcije_Click(object sender, RoutedEventArgs e)
         {
-            Close();
+            AkcijeWindow aw = new AkcijeWindow(this.ulogovaniKorisnik);
+            aw.Show();
+            this.Close();
         }
 
-        private void btnIzmeniNamestaj_Click(object sender, RoutedEventArgs e)
+        private void btnDodatneUsluge_Click(object sender, RoutedEventArgs e)
         {
-            var izabraniNamestaj = (Namestaj)lbNamestaj.SelectedItem;
+            DodatneUslugeWindow duw = new DodatneUslugeWindow(this.ulogovaniKorisnik);
+            duw.Show();
+            this.Close();
+        }
 
-            var namestajProzor = new NamestajWindow(izabraniNamestaj, NamestajWindow.TipOperacije.IZMENA);
-            namestajProzor.ShowDialog();
+        private void btnProdaja_Click(object sender, RoutedEventArgs e)
+        {
+            ProdajaWindow pw = new ProdajaWindow(this.ulogovaniKorisnik);
+            pw.Show();
+            this.Close();
+        }
 
-            OsveziPrikaz();
+        private void btnSalon_Click(object sender, RoutedEventArgs e)
+        {
+            SalonEditWindow sew = new SalonEditWindow(this.ulogovaniKorisnik);
+            sew.Show();
+            this.Close();
         }
     }
 }

@@ -5,15 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="522" Width="1000">
     <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="Images/mainSalon.png"/>
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="127*"/>
             <RowDefinition Height="33*"/>
         </Grid.RowDefinitions>
-        <ListBox Grid.Row="0" x:Name="lbNamestaj" HorizontalAlignment="Left" Height="Auto" Margin="61,33,0,0" VerticalAlignment="Top" Width="525"/>
-        <Button Grid.Row="1" Width="90" Height="30" HorizontalAlignment="Center" Name="btnDodajNamestaj" Click="btnDodajNamestaj_Click">Dodaj namestaj</Button>
-        <Button Grid.Row="1" Width="90" Height="30" HorizontalAlignment="Left" Name="btnIzmeniNamestaj" Click="btnIzmeniNamestaj_Click">Izmeni namestaj</Button>
-        <Button Grid.Row="1" Width="90" Height="30" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click">Izlaz</Button>
+        <Button x:Name="btnNamestaj" Content="Namestaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="231" Height="97" Margin="84,72,0,0" Click="btnNamestaj_Click" FontSize="36"/>
+        <Button x:Name="btnKorisnici" Content="Korisnici" HorizontalAlignment="Left" VerticalAlignment="Top" Width="231" Height="97" Margin="84,219,0,0" Click="btnKorisnici_Click" FontSize="36"/>
+        <Button x:Name="btnAkcije" Content="Akcije" HorizontalAlignment="Left" VerticalAlignment="Top" Width="231" Height="97" Margin="399,72,0,0" Click="btnAkcije_Click" FontSize="36"/>
+        <Button x:Name="btnDodatneUsluge" Content="Dodatne Usluge" HorizontalAlignment="Left" VerticalAlignment="Top" Width="231" Height="97" Margin="399,219,0,0" Click="btnDodatneUsluge_Click" FontSize="28"/>
+        <Button x:Name="btnProdaja" Content="Prodaja" HorizontalAlignment="Left" VerticalAlignment="Top" Width="231" Height="97" Margin="705,72,0,0" Click="btnProdaja_Click" FontSize="36"/>
+        <Button x:Name="btnSalon" Content="O Salonu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="231" Height="97" Margin="735,368,0,0" Click="btnSalon_Click" FontSize="36" Grid.RowSpan="2"/>
     </Grid>
 </Window>

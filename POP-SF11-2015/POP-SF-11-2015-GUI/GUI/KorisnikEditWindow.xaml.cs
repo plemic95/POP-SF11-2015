@@ -16,23 +16,30 @@ using System.Windows.Shapes;
 namespace POP_SF_11_2015_GUI.GUI
 {
     /// <summary>
-    /// Interaction logic for AkcijeWindow.xaml
+    /// Interaction logic for KorisnikEditWindow.xaml
     /// </summary>
-    public partial class AkcijeWindow : Window
+    public partial class KorisnikEditWindow : Window
     {
-        private Korisnik ulogovaniKorisnik;
 
-        public AkcijeWindow(Korisnik ulogovaniKorisnik)
+        public enum TipOperacije
+        {
+            DODAVANJE,
+            IZMENA
+        }
+
+        private Korisnik korisnik;
+        private TipOperacije operacija;
+
+
+        public KorisnikEditWindow(Korisnik korisnik, TipOperacije operacija)
         {
             InitializeComponent();
-            this.ulogovaniKorisnik = ulogovaniKorisnik;
+
+
+            this.korisnik = korisnik;
+            this.operacija = operacija;
+
         }
 
-        private void btnIzlaz_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow mw = new MainWindow(this.ulogovaniKorisnik);
-            mw.Show();
-            this.Close();
-        }
     }
 }

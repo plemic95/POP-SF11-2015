@@ -47,6 +47,15 @@ namespace POP_SF_11_2015_GUI
 
             //Console.WriteLine("Finished serialization...");
 
+            //var ak1 = new Akcija()
+            //{
+            //    Id = 1,
+            //    DatumPocetka = "12/20/2017",
+            //    Popust = 55%,
+            //    DatumZavrsetka = 05/20/2017,
+            //    Obrisan = false
+            //}
+
             //var du1 = new DodatnaUsluga()
             //{
             //    Id = 1,
@@ -95,8 +104,8 @@ namespace POP_SF_11_2015_GUI
             else
             {
                 lblErrorMessage.Visibility = Visibility.Visible;
-                lblErrorMessage.Content = $"Uneli ste pogresno korisnicko ime i/ili lozinku! Preostalo je jos 3 pokusaja!";
-                lblErrorMessage.FontSize = 16;
+                lblErrorMessage.Content = "Uneli ste pogresno korisnicko ime i/ili lozinku! Preostalo je jos 3 pokusaja!";
+                lblErrorMessage.FontSize = 44;
                 lblErrorMessage.Width = Double.NaN;
             }
         }

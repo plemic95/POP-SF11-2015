@@ -1,18 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace POP_SF11_2015.Model
 {
-    public class TipNamestaja
+    public class TipNamestaja: INotifyPropertyChanged
     {
-        public int Id { get; set; }
 
-        public string Naziv { get; set; }
+        private int id;
 
-        public bool Obrisan { get; set; }
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
+
+        private string naziv;
+
+        public string Naziv
+        {
+            get { return naziv; }
+            set
+            {
+                naziv = value;
+                OnPropertyChanged("Naziv");
+            }
+        }
+
+        private bool obrisan;
+
+        public bool Obrisan
+        {
+            get { return obrisan; }
+            set
+            {
+                obrisan = value;
+                OnPropertyChanged("Obrisan");
+            }
+        }
+
+
+        //public int Id { get; set; }
+
+        //public string Naziv { get; set; }
+
+        //public bool Obrisan { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public override string ToString()
         {
@@ -31,6 +72,14 @@ namespace POP_SF11_2015.Model
             return null;
 
             //return Projekat.Instance.TipoviNamestaja.SingleOrDefault(x => x.Id == id) ;
+        }
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

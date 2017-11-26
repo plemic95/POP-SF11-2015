@@ -58,11 +58,17 @@
     <Compile Include="GUI\AkcijeWindow.xaml.cs">
       <DependentUpon>AkcijeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\DodatneUslugeEditWindow.xaml.cs">
+      <DependentUpon>DodatneUslugeEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DodatneUslugeWindow.xaml.cs">
       <DependentUpon>DodatneUslugeWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\KorisniciWindow.xaml.cs">
       <DependentUpon>KorisniciWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\KorisnikEditWindow.xaml.cs">
+      <DependentUpon>KorisnikEditWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\NamestajWindow.xaml.cs">
       <DependentUpon>NamestajWindow.xaml</DependentUpon>
@@ -84,11 +90,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\DodatneUslugeEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\DodatneUslugeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\KorisniciWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\KorisnikEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -174,10 +188,58 @@
     <Resource Include="Images\loginSalon.png" />
   </ItemGroup>
   <ItemGroup>
+    <Resource Include="Data\salon.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnLogin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnClose.png" />
+  </ItemGroup>
+  <ItemGroup>
     <Resource Include="Images\mainSalon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\salon.xml" />
+    <Resource Include="Images\btnAdd.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnDelete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnEdit.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnBack.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnAkcija.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnProdaja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnUsers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnDodatneUsluge.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnNamestaj.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnSalon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnLogout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnSave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnAkcijaZima.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\akcije.xml" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -2,44 +2,65 @@
 <ArrayOfNamestaj xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Namestaj>
     <Id>1</Id>
-    <Naziv>Ekstra krevet</Naziv>
-    <Sifra>KRO1995SOC</Sifra>
-    <Cena>777</Cena>
+    <Naziv>Lampa</Naziv>
+    <Sifra>LMP13</Sifra>
+    <Cena>15000</Cena>
     <KolicinaUMagacinu>100</KolicinaUMagacinu>
-    <TipNamestajaId>1</TipNamestajaId>
-    <Obrisan>false</Obrisan>
+    <TipNamestajaId>3</TipNamestajaId>
+    <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>2</Id>
-    <Naziv>Stolicaaaaa</Naziv>
-    <Sifra>STO88GC</Sifra>
-    <Cena>555</Cena>
-    <KolicinaUMagacinu>105</KolicinaUMagacinu>
+    <Naziv>Stolica</Naziv>
+    <Sifra>STO88</Sifra>
+    <Cena>5000</Cena>
+    <KolicinaUMagacinu>50</KolicinaUMagacinu>
     <TipNamestajaId>2</TipNamestajaId>
     <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>3</Id>
-    <Naziv>sto</Naziv>
-    <Cena>0</Cena>
-    <KolicinaUMagacinu>0</KolicinaUMagacinu>
-    <TipNamestajaId>0</TipNamestajaId>
-    <Obrisan>false</Obrisan>
+    <Naziv>Krevet</Naziv>
+    <Sifra>KRE55</Sifra>
+    <Cena>9000</Cena>
+    <KolicinaUMagacinu>14</KolicinaUMagacinu>
+    <TipNamestajaId>1</TipNamestajaId>
+    <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>4</Id>
-    <Naziv>sttttttt</Naziv>
-    <Cena>0</Cena>
-    <KolicinaUMagacinu>0</KolicinaUMagacinu>
-    <TipNamestajaId>0</TipNamestajaId>
+    <Naziv>Bojler</Naziv>
+    <Sifra>BOJ12</Sifra>
+    <Cena>14000</Cena>
+    <KolicinaUMagacinu>55</KolicinaUMagacinu>
+    <TipNamestajaId>2</TipNamestajaId>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>5</Id>
-    <Naziv>milkja</Naziv>
-    <Cena>0</Cena>
-    <KolicinaUMagacinu>0</KolicinaUMagacinu>
+    <Naziv>Fotelja</Naziv>
+    <Sifra>FOT551</Sifra>
+    <Cena>4500</Cena>
+    <KolicinaUMagacinu>15</KolicinaUMagacinu>
     <TipNamestajaId>2</TipNamestajaId>
+    <Obrisan>false</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>6</Id>
+    <Naziv>Lampa</Naziv>
+    <Sifra>SOF333</Sifra>
+    <Cena>15000</Cena>
+    <KolicinaUMagacinu>15</KolicinaUMagacinu>
+    <TipNamestajaId>1</TipNamestajaId>
+    <Obrisan>false</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>7</Id>
+    <Naziv>Nova Polica</Naziv>
+    <Sifra>NP11</Sifra>
+    <Cena>1500</Cena>
+    <KolicinaUMagacinu>550</KolicinaUMagacinu>
+    <TipNamestajaId>0</TipNamestajaId>
     <Obrisan>true</Obrisan>
   </Namestaj>
 </ArrayOfNamestaj>

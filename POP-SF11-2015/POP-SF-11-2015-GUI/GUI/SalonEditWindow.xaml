@@ -5,8 +5,46 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
         mc:Ignorable="d"
-        Title="SalonEditWindow" Height="300" Width="300">
-    <Grid>
-        
+        Title="SalonEditWindow"
+        WindowState="Maximized"
+        WindowStyle="None">
+    <Grid Background="#FF6771D4">
+        <Label x:Name="lblId" Content="Id" HorizontalAlignment="Center" Margin="-400,90,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48"/>
+        <TextBox x:Name="tbId" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,90,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold"/>
+
+        <Label x:Name="lbNaziv" Content="Naziv" HorizontalAlignment="Center" Margin="-400,180,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.RowSpan="2"/>
+        <TextBox x:Name="tbNaziv" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,180,0,0" TextWrapping="Wrap" Text="{Binding Path=Naziv}" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="1"/>
+
+        <Label x:Name="lbAdresa" Content="Adresa" HorizontalAlignment="Center" Margin="-400,270,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="1" Grid.RowSpan="2"/>
+        <TextBox x:Name="tbAdresa" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,270,0,0" TextWrapping="Wrap" Text="{Binding Path=Adresa}" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="2"/>
+
+        <Label x:Name="lbTelefon" Content="Telefon" HorizontalAlignment="Center" Margin="-400,360,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="3"/>
+        <TextBox x:Name="tbTelefon" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,360,0,0" TextWrapping="Wrap" Text="{Binding Path=Telefon}" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="3"/>
+
+        <Label x:Name="lbEmail" Content="Email" HorizontalAlignment="Center" Margin="-400,450,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="4"/>
+        <TextBox x:Name="tbEmail" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,450,0,0" TextWrapping="Wrap" Text="{Binding Path=Email}" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="4"/>
+
+        <Label x:Name="lbWebSajt" Content="Web Sajt" HorizontalAlignment="Center" Margin="-400,540,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="4" Grid.RowSpan="2"/>
+        <TextBox x:Name="tbWebSajt" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,540,0,0" TextWrapping="Wrap" Text="{Binding Path=WebSajt}" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="5"/>
+
+        <Label x:Name="lbPIB" Content="PIB" HorizontalAlignment="Center" Margin="-400,630,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="6"/>
+        <TextBox x:Name="tbPIB" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,630,0,0" TextWrapping="Wrap" Text="{Binding Path=PIB}" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="6"/>
+
+        <Label x:Name="lbMaticniBroj" Content="Maticni Broj" HorizontalAlignment="Center" Margin="-400,720,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="7"/>
+        <TextBox x:Name="tbMaticniBroj" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,720,0,0" TextWrapping="Wrap" Text="{Binding Path=MaticniBroj}" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="7"/>
+
+        <Label x:Name="lbBrojZiroRacuna" Content="Broj Ziro Racuna" HorizontalAlignment="Center" Margin="-400,810,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="8"/>
+        <TextBox x:Name="tbBrojZiroRacuna" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,810,0,0" TextWrapping="Wrap" Text="{Binding Path=BrojZiroRacuna}" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="8"/>
+        <Button x:Name="btnSacuvaj" HorizontalAlignment="Left" Margin="1080,890, 0,0" VerticalAlignment="Top" Width="150" Height="150" Click="btnSacuvaj_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnSave.png"/>
+            </Button.Background>
+        </Button>
+        <Button x:Name="btnIzlaz" HorizontalAlignment="Left" Margin="1500,890,0,0" VerticalAlignment="Top" Width="150" Height="150" Click="btnIzlaz_Click">
+            <Button.Background>
+                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnBack.png"/>
+            </Button.Background>
+        </Button>
+
     </Grid>
 </Window>

@@ -5,26 +5,41 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI"
         mc:Ignorable="d"
-        Title="LoginWindow" Height="400" Width="600">
+        Title="LoginWindow"
+        WindowState="Maximized"
+        WindowStyle="None">
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Images/loginSalon.png"/>
         </Grid.Background>
-        <Label x:Name="lblPoruka" Content="Dobrodosli u Salon namestaja, molimo vas unesite vase podatke" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Margin="90,10,59,0" FontSize="14" Width="443"/>
-        <Label Content="Korisnicko Ime:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="161,43,326,0" Width="105" FontWeight="Bold">
+        <Label x:Name="lblPoruka" Content="Dobrodosli u Salon namestaja, molimo vas unesite vase podatke" HorizontalAlignment="Center" VerticalAlignment="Top" FontWeight="Bold" Margin="31,0,24,0" FontSize="48" Foreground="#FF641212" FontFamily="Arial Black">
             <Label.Effect>
-                <DropShadowEffect Color="#FFAE7E7E"/>
+                <DropShadowEffect/>
             </Label.Effect>
         </Label>
-        <Label Content="Lozinka:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="161,88,326,0" Width="105" FontWeight="Bold">
+        <Label x:Name="lblKorisnickoIme" Content="Korisnicko Ime:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="161,120,494,0" FontWeight="Bold" FontSize="48" FontFamily="Arial Black" Foreground="#FF641212">
             <Label.Effect>
-                <DropShadowEffect Color="#FFAE7E7E"/>
+                <DropShadowEffect/>
             </Label.Effect>
         </Label>
-        <TextBox x:Name="tbUsername" HorizontalAlignment="Center" Height="26" Margin="287,43,190,0" TextWrapping="NoWrap" VerticalAlignment="Top" Width="115"/>
-        <PasswordBox x:Name="pbPassword" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="16.67,5.334" Width="115" Margin="287,88,190,0" Height="26"/>
-        <Button x:Name="LogInButton" Content="Log In" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Margin="287,136,230,0" Click="LogInButton_Click"/>
-        <Button x:Name="closeButton" Content="Close" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Margin="480,312,37,0" Click="closeButton_Click"/>
-        <Label x:Name="lblErrorMessage" Foreground="#FF7A0101" Content="" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Bottom" Width="231" FontWeight="Bold"/>
+        <Label x:Name="lblLozinka" Content="Lozinka:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="360,240,494,0" FontWeight="Bold" Foreground="#FF641212" FontFamily="Arial Black" FontSize="48">
+            <Label.Effect>
+                <DropShadowEffect/>
+            </Label.Effect>
+        </Label>
+        <TextBox x:Name="tbUsername" HorizontalAlignment="Center" Margin="600,120,152,0" TextWrapping="NoWrap" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" FontWeight="Bold" Width="350"/>
+        <PasswordBox x:Name="pbPassword" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="16.67,5.334" Width="350" Margin="600,240,152,0" FontSize="48" FontWeight="Bold"/>
+        <Button x:Name="LogInButton" HorizontalAlignment="Center" VerticalAlignment="Top" Width="230" Margin="380,360,54,0" Click="LogInButton_Click" Height="81">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/btnLogin.png">
+                </ImageBrush>
+            </Button.Background>
+        </Button>
+        <Button x:Name="closeButton" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Margin="570,360,-144,0" Click="closeButton_Click" Height="81">
+            <Button.Background>
+                <ImageBrush ImageSource="Images/btnClose.png"/>
+            </Button.Background>
+        </Button>
+        <Label x:Name="lblErrorMessage" Foreground="#FF641212" Content="" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" FontFamily="Arial Black"/>
     </Grid>
 </Window>

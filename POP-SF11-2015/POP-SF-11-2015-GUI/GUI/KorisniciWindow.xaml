@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
         mc:Ignorable="d"
-        Title="KorisniciWindow" Height="300" Width="300">
-    <Grid>
-        
+        Title="KorisniciWindow"
+        WindowState="Maximized"
+        WindowStyle="None">
+    <Grid Background="#FF6771D4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="127*"/>
+            <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" x:Name="dgKorisnici" HorizontalAlignment="Left" Height="700" Margin="100,70,0,0" VerticalAlignment="Top" Width="1800" FontFamily="Arial Black" FontWeight="Bold" FontSize="36"/>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="-500,00,0,0" x:Name="btnDodajKorisnika" Click="btnDodajKorisnika_Click" Content="">
+            <Button.Background>
+                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnAdd.png"/>
+            </Button.Background>
+        </Button>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="0,0,0,0" x:Name="btnIzmeniKorisnika" Click="btnIzmeniKorisnika_Click" Content="">
+            <Button.Background>
+                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnEdit.png"/>
+            </Button.Background>
+        </Button>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Right" Margin="0,00,0,0"  x:Name="btnIzlaz" Click="btnIzlaz_Click" Content="">
+            <Button.Background>
+                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnBack.png"/>
+            </Button.Background>
+        </Button>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="500,00,0,0" x:Name="btnObrisi" Click="btnObrisi_Click" Content="">
+            <Button.Background>
+                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnDelete.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

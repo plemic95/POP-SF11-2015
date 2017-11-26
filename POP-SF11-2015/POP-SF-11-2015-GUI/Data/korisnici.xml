@@ -15,7 +15,7 @@
     <Prezime>Markovic</Prezime>
     <KorisnickoIme>marko1</KorisnickoIme>
     <Lozinka>555333</Lozinka>
-    <TipKorisnika>Administrator</TipKorisnika>
+    <TipKorisnika>Prodavac</TipKorisnika>
     <Obrisan>false</Obrisan>
   </Korisnik>
 </ArrayOfKorisnik>

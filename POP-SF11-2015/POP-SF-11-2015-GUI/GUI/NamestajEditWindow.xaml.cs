@@ -1,4 +1,5 @@
 ﻿using POP_SF11_2015.Model;
+using POP_SF11_2015.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,28 +35,18 @@ namespace POP_SF_11_2015_GUI.GUI
         {
             InitializeComponent();
 
-            InicijalizujPodatke(namestaj, operacija);
-        }
-
-        private void InicijalizujPodatke(Namestaj namestaj, TipOperacije operacija)
-        {
             this.namestaj = namestaj;
             this.operacija = operacija;
 
-            tbNaziv.Text = namestaj.Naziv;
-            foreach (var tipNamestaja in Projekat.Instance.TipoviNamestaja)
-            {
-                cbTipNamestaja.Items.Add(tipNamestaja);
-            }
+            cbTipNamestaja.ItemsSource = Projekat.Instance.TipoviNamestaja;
 
-            foreach (TipNamestaja tipNamestaja in cbTipNamestaja.Items)
-            {
-                if (tipNamestaja.Id == namestaj.TipNamestajaId)
-                {
-                    cbTipNamestaja.SelectedItem = tipNamestaja;
-                }
-            }
+            tbNaziv.DataContext = namestaj;
+            cbTipNamestaja.DataContext = namestaj;
+            tbSifra.DataContext = namestaj;
+            tbCena.DataContext = namestaj;
+            tbKolicinaUMagacinu.DataContext = namestaj;
         }
+
 
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
         {
@@ -66,18 +57,11 @@ namespace POP_SF_11_2015_GUI.GUI
         {
 
             var listaNamestaja = Projekat.Instance.Namestaj;
-            Namestaj namestajZaIzmenu = null;
-            int tipNamestajaId = ((TipNamestaja)cbTipNamestaja.SelectedItem).Id;
 
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
-                    namestaj = new Namestaj()
-                    {
-                        Id = listaNamestaja.Count + 1,
-                        Naziv = tbNaziv.Text,
-                        TipNamestajaId = tipNamestajaId
-                    };
+                    namestaj.Id = listaNamestaja.Count + 1;
                     listaNamestaja.Add(namestaj);
                     break;
                 case TipOperacije.IZMENA:
@@ -85,17 +69,24 @@ namespace POP_SF_11_2015_GUI.GUI
                     {
                         if (n.Id == namestaj.Id)
                         {
-                            namestajZaIzmenu = n;
+                            n.TipNamestajaId = namestaj.TipNamestajaId;
+                            n.Naziv = namestaj.Naziv;
+                            n.Sifra = namestaj.Sifra;
+                            n.Cena = namestaj.Cena;
+                            n.KolicinaUMagacinu = namestaj.KolicinaUMagacinu;
+                            break;
                         }
                     }
+                    break;
                     //var namestajZaIzmenu = listaNamestaja.SingleOrDefault(x => x.Id == namestaj.Id);
                     // var namestajZaIzmenu = Namestaj.GetById(namestaj.Id);
-                    namestajZaIzmenu.TipNamestajaId = tipNamestajaId;
-                    namestajZaIzmenu.Naziv = tbNaziv.Text;
-                    //namestajZaIzmenu.TipNamestajaId = ((TipNamestaja)cbTipNamestaja.SelectedItem).Id;
-                    break;
+                    //namestajZaIzmenu.TipNamestajaId = tipNamestajaId;
+                    //namestajZaIzmenu.Naziv = tbNaziv.Text;
+                    ////namestajZaIzmenu.TipNamestajaId = ((TipNamestaja)cbTipNamestaja.SelectedItem).Id;
+                    //break;
             }
-            string naziv = tbNaziv.Text;
+            GenericSerializer.Serialize("namestaj.xml", listaNamestaja);
+            //string naziv = tbNaziv.Text;
 
         //    namestaj = new Namestaj()
         //    {
@@ -104,7 +95,7 @@ namespace POP_SF_11_2015_GUI.GUI
         //    };
 
         //    listaNamestaja.Add(namestaj);
-            Projekat.Instance.Namestaj = listaNamestaja;
+            //Projekat.Instance.Namestaj = listaNamestaja;
 
             Close();
         }

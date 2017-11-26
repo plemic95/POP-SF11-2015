@@ -5,8 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
         mc:Ignorable="d"
-        Title="AkcijeWindow" Height="300" Width="300">
-    <Grid>
-        
+        Title="AkcijeWindow"
+        WindowState="Maximized"
+        WindowStyle="None">
+    <Grid Background="#FF6771D4">
+        <Button x:Name="button" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="350" Margin="70,20,0,0" Height="350">
+            <Button.Background>
+                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnAkcijaZima.png"/>
+            </Button.Background>
+        </Button>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Right" Margin="0,800,0,0"  x:Name="btnIzlaz" Click="btnIzlaz_Click" Content="">
+            <Button.Background>
+                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnBack.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

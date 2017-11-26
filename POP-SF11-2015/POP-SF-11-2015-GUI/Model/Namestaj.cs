@@ -1,28 +1,141 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace POP_SF11_2015.Model
 {
-    public class Namestaj
+    public class Namestaj: INotifyPropertyChanged
     {
-        public int Id { get; set; }
 
-        public string Naziv { get; set; }
+        private int id;
 
-        public string Sifra { get; set; }
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
 
-        public double Cena { get; set; }
+        private string naziv;
 
-        public int KolicinaUMagacinu { get; set; }
+        public string Naziv
+        {
+            get { return naziv; }
+            set
+            {
+                naziv = value;
+                OnPropertyChanged("Naziv");
+            }
+        }
 
-        public int TipNamestajaId { get; set; }
+        private string sifra;
 
-        public Akcija Akcija { get; set; }
+        public string Sifra
+        {
+            get { return sifra; }
+            set
+            {
+                sifra = value;
+                OnPropertyChanged("Sifra");
+            }
+        }
 
-        public bool Obrisan { get; set; }
+        private TipNamestaja tipNamestaja;
+
+        [XmlIgnore]
+
+        public TipNamestaja TipNamestaja
+        {
+            get
+            {
+                if (tipNamestaja == null)
+                {
+                    tipNamestaja = TipNamestaja.GetById(TipNamestajaId);
+                }
+                return tipNamestaja;
+            }
+            set
+            {
+                tipNamestaja = value;
+                TipNamestajaId = tipNamestaja.Id;
+                OnPropertyChanged("TipNamestaja");
+            }
+        }
+
+        private int tipNamestajaId;
+
+        public int TipNamestajaId
+        {
+            get { return tipNamestajaId; }
+            set
+            {
+                tipNamestajaId = value;
+                OnPropertyChanged("TipNamestaja");
+            }
+        }
+
+        private double cena;
+
+        public double Cena
+        {
+            get { return cena; }
+            set
+            {
+                cena = value;
+                OnPropertyChanged("Cena");
+            }
+        }
+
+        private int kolicinaUMagacinu;
+
+        public int KolicinaUMagacinu
+        {
+            get { return kolicinaUMagacinu; }
+            set
+            {
+                kolicinaUMagacinu = value;
+                OnPropertyChanged("KolicinaUMagacinu");
+            }
+        }
+
+
+        private bool obrisan;
+
+        public bool Obrisan
+        {
+            get { return obrisan; }
+            set
+            {
+                obrisan = value;
+                OnPropertyChanged("Obrisan");
+            }
+        }
+
+
+        //public int Id { get; set; }
+
+        //public string Naziv { get; set; }
+
+        //public string Sifra { get; set; }
+
+        //public double Cena { get; set; }
+
+        //public int KolicinaUMagacinu { get; set; }
+
+        //public int TipNamestajaId { get; set; }
+
+        //public Akcija Akcija { get; set; }
+
+        //public bool Obrisan { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public override string ToString()
         {
@@ -41,6 +154,13 @@ namespace POP_SF11_2015.Model
             return null;
 
             //return Projekat.Instance.TipoviNamestaja.SingleOrDefault(x => x.Id == id) ;
+        }
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if(PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
         }
     }
 }

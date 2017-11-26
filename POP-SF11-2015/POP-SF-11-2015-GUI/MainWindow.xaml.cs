@@ -82,8 +82,15 @@ namespace POP_SF_11_2015_GUI
 
         private void btnSalon_Click(object sender, RoutedEventArgs e)
         {
-            SalonEditWindow sew = new SalonEditWindow(this.ulogovaniKorisnik);
+            SalonEditWindow sew = new SalonEditWindow(this.ulogovaniKorisnik, SalonEditWindow.TipOperacije.IZMENA);
             sew.Show();
+            this.Close();
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            LoginWindow lw = new LoginWindow();
+            lw.Show();
             this.Close();
         }
     }

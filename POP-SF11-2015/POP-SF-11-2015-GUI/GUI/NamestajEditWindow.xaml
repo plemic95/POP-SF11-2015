@@ -5,28 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
         mc:Ignorable="d"
-        Title="NamestajEditWindow" Height="400" Width="358.31">
-    <Grid Margin="0,7,0,32" RenderTransformOrigin="0.5,0.5">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="8*"/>
-            <ColumnDefinition Width="17*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="88*">
+        Title="NamestajEditWindow" 
+        WindowState="Maximized"
+        WindowStyle="None">
+    <Grid Background="#FF6771D4">
+        <Label x:Name="lblNaziv" HorizontalAlignment="Center" Margin="-500,140,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Naziv</Label>
+        <TextBox HorizontalAlignment="Center" Text="{Binding Path=Naziv}" Margin="500,140,0,0" VerticalAlignment="Top" Name="tbNaziv" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
 
-            </RowDefinition>
-            <RowDefinition Height="77*"/>
-            <RowDefinition Height="113*">
+        <Label x:Name="lblTipNamestaja" HorizontalAlignment="Center" Margin="-500,280,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Tip Namestaja</Label>
+        <ComboBox Name="cbTipNamestaja" SelectedItem="{Binding Path=TipNamestaja}" Margin="500,280,0,0" FontFamily="Arial Black" FontWeight="Bold" FontSize="48" Width="400" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
-            </RowDefinition>
-            <RowDefinition Height="53*"/>
-        </Grid.RowDefinitions>
+        <Label x:Name="lblSifra" HorizontalAlignment="Center" Margin="-500,420,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Sifra</Label>
+        <TextBox HorizontalAlignment="Center" Text="{Binding Path=Sifra}" Margin="500,420,0,0" VerticalAlignment="Top" Name="tbSifra" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
 
-        <Label Grid.Row="1" Grid.Column="0" Grid.RowSpan="3" Grid.ColumnSpan="2" Margin="0,0,0,42">Naziv:</Label>
-        <TextBox Grid.Row="1" Height="30" HorizontalAlignment="Left" VerticalAlignment="Top" Name="tbNaziv"  Width="219" Grid.Column="1"/>
-        <Button Grid.Row="3" HorizontalAlignment="Right" Name="btnIzlaz" Click="btnIzlaz_Click" Margin="0,0,55,2" Grid.Column="1" Width="43" >Zatvori</Button>
-        <Button Grid.Row="3" HorizontalAlignment="Left" Name="btnSacuvaj" Click="btnSacuvaj_Click" Margin="45,0,0,0" Width="46" >Sacuvaj</Button>
-        <Label Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">Tip Namestaja:</Label>
-        <ComboBox Name="cbTipNamestaja" Grid.Row="2" Grid.ColumnSpan="1" RenderTransformOrigin="4.302,0.452" Grid.Column="1" Margin="28,0,40,61"/>
+        <Label x:Name="lblCena" HorizontalAlignment="Center" Margin="-500,560,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Cena</Label>
+        <TextBox HorizontalAlignment="Center" Text="{Binding Path=Cena}" Margin="500,560,0,0" VerticalAlignment="Top" Name="tbCena" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
+
+        <Label x:Name="lblKolicina" HorizontalAlignment="Center" Margin="-500,700,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Kolicina U Magacinu</Label>
+        <TextBox HorizontalAlignment="Center" Text="{Binding Path=KolicinaUMagacinu}" Margin="500,700,0,0" VerticalAlignment="Top" Name="tbKolicinaUMagacinu" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
+
+        <Button HorizontalAlignment="Center" x:Name="btnSacuvaj" Click="btnSacuvaj_Click" Margin="0,800,0,0" Width="200" Height="200" Content="" >
+            <Button.Background>
+                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnSave.png"/>
+            </Button.Background>
+        </Button>
+        <Button HorizontalAlignment="Right" x:Name="btnIzlaz" Click="btnIzlaz_Click" Margin="100,800,55,2" Width="200" Height="200" Content="" >
+            <Button.Background>
+                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnBack.png"/>
+            </Button.Background>
+        </Button>
     </Grid>
 </Window>

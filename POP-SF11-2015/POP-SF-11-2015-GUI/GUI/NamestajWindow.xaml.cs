@@ -3,6 +3,7 @@ using POP_SF11_2015.Model;
 using POP_SF11_2015.Utils;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,7 +24,7 @@ namespace POP_SF_11_2015_GUI
     /// </summary>
     public partial class NamestajWindow : Window
     {
-
+        private ICollectionView view;
         private Korisnik ulogovaniKorisnik;
 
         public NamestajWindow(Korisnik ulogovaniKorisnik)
@@ -32,15 +33,25 @@ namespace POP_SF_11_2015_GUI
             //OsveziPrikaz();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
 
-            dgNamestaj.ItemsSource = Projekat.Instance.Namestaj;
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaj);
+            view.Filter = NamestajFilter;
+            //dgNamestaj.ItemsSource = Projekat.Instance.Namestaj;
+            dgNamestaj.ItemsSource = view;
             dgNamestaj.IsSynchronizedWithCurrentItem = true;
+            dgNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+        }
+            private bool NamestajFilter(object item)
+            {
+            //return ((Namestaj)item).Obrisan == false;
+                Namestaj nam = item as Namestaj;
+                return !nam.Obrisan;
+            }
 
           //  if (ulogovaniKorisnik.TipKorisnika.Oznaka != 1)
           //  {
           //      bKorisnici.IsEnabled = false;
           //  }
 
-        }
 
         //public MainWindow()
         //{
@@ -98,6 +109,7 @@ namespace POP_SF_11_2015_GUI
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
             var izabraniNamestaj = (Namestaj)dgNamestaj.SelectedItem;
+
             //Namestaj izabraniNamestaj = (Namestaj)lbNamestaj.SelectedItem;
             if (MessageBox.Show($"Da li ste sigurni da zelite da izbrisete: { izabraniNamestaj.Naziv}?", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
@@ -106,6 +118,7 @@ namespace POP_SF_11_2015_GUI
                     if (n.Id == izabraniNamestaj.Id)
                     {
                         n.Obrisan = true;
+                        view.Refresh();
                         break;
                     }
                 }
@@ -114,6 +127,26 @@ namespace POP_SF_11_2015_GUI
             }
 
             GenericSerializer.Serialize("namestaj.xml", Projekat.Instance.Namestaj);
+        }
+
+        private void dgNamestaj_AutoGeneratingColumn_1(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if ((string)e.Column.Header == "Obrisan")
+            {
+                e.Cancel = true;
+            }
+            if ((string)e.Column.Header == "TipNamestajaId")
+            {
+                e.Cancel = true;
+            }
+            if ((string)e.Column.Header == "KolicinaUMagacinu")
+            {
+                e.Column.Header = "Kolicina";
+            }
+            if ((string)e.Column.Header == "TipNamestaja")
+            {
+                e.Column.Header = "Tip Namestaja";
+            }
         }
     }
 }

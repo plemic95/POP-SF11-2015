@@ -24,15 +24,15 @@
         <Label x:Name="lblKolicina" HorizontalAlignment="Center" Margin="-500,700,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Kolicina U Magacinu</Label>
         <TextBox HorizontalAlignment="Center" Text="{Binding Path=KolicinaUMagacinu}" Margin="500,700,0,0" VerticalAlignment="Top" Name="tbKolicinaUMagacinu" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
 
-        <Button HorizontalAlignment="Center" x:Name="btnSacuvaj" Click="btnSacuvaj_Click" Margin="0,800,0,0" Width="200" Height="200" Content="" >
-            <Button.Background>
-                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnSave.png"/>
-            </Button.Background>
+        <Button HorizontalAlignment="Center" x:Name="btnSacuvaj" Click="btnSacuvaj_Click" Margin="0,800,0,0" Width="200" Height="200" >
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnSave.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
-        <Button HorizontalAlignment="Right" x:Name="btnIzlaz" Click="btnIzlaz_Click" Margin="100,800,55,2" Width="200" Height="200" Content="" >
-            <Button.Background>
-                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnBack.png"/>
-            </Button.Background>
+        <Button HorizontalAlignment="Right" x:Name="btnIzlaz" Click="btnIzlaz_Click" Margin="100,800,55,2" Width="200" Height="200" >
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnBack.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
     </Grid>
 </Window>

@@ -30,15 +30,14 @@
         <TextBox x:Name="tbUsername" HorizontalAlignment="Center" Margin="600,120,152,0" TextWrapping="NoWrap" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" FontWeight="Bold" Width="350"/>
         <PasswordBox x:Name="pbPassword" HorizontalAlignment="Center" VerticalAlignment="Top" RenderTransformOrigin="16.67,5.334" Width="350" Margin="600,240,152,0" FontSize="48" FontWeight="Bold"/>
         <Button x:Name="LogInButton" HorizontalAlignment="Center" VerticalAlignment="Top" Width="230" Margin="380,360,54,0" Click="LogInButton_Click" Height="81">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/btnLogin.png">
-                </ImageBrush>
-            </Button.Background>
+            <Button.Content>
+                <Image Source="Images/btnLogin.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
         <Button x:Name="closeButton" HorizontalAlignment="Center" VerticalAlignment="Top" Width="75" Margin="570,360,-144,0" Click="closeButton_Click" Height="81">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/btnClose.png"/>
-            </Button.Background>
+            <Button.Content>
+                <Image Source="Images/btnClose.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
         <Label x:Name="lblErrorMessage" Foreground="#FF641212" Content="" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" FontFamily="Arial Black"/>
     </Grid>

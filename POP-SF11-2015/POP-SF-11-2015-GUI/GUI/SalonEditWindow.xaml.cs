@@ -29,23 +29,20 @@ namespace POP_SF_11_2015_GUI.GUI
 
         private Salon salon;
         private TipOperacije operacija;
-        private Korisnik ulogovaniKorisnik;
-        private TipOperacije iZMENA;
+
+        //private Korisnik ulogovaniKorisnik;
+        //private TipOperacije iZMENA;
 
 
-        public SalonEditWindow(Korisnik ulogovaniKorisnik, TipOperacije iZMENA)
+
+        public SalonEditWindow(Salon salon, TipOperacije operacija)
         {
             InitializeComponent();
-            this.ulogovaniKorisnik = ulogovaniKorisnik;
-            this.iZMENA = iZMENA;
-        }
-
-        public SalonEditWindow(Korisnik ulogovaniKorisnik, Salon salon, TipOperacije operacija)
-        {
-            this.ulogovaniKorisnik = ulogovaniKorisnik;
             this.salon = salon;
             this.operacija = operacija;
+     //       this.iZMENA = iZMENA;
 
+            tbId.IsEnabled = false;
             tbNaziv.DataContext = salon;
             tbAdresa.DataContext = salon;
             tbTelefon.DataContext = salon;
@@ -56,10 +53,23 @@ namespace POP_SF_11_2015_GUI.GUI
             tbBrojZiroRacuna.DataContext = salon;
         }
 
+        //public SalonEditWindow(Korisnik ulogovaniKorisnik, TipOperacije operacija)
+        //{
+        //    this.ulogovaniKorisnik = ulogovaniKorisnik;
+        //    this.operacija = operacija;
+
+        //    //tbNaziv.DataContext = salon;
+        //    //tbAdresa.DataContext = salon;
+        //    //tbTelefon.DataContext = salon;
+        //    //tbEmail.DataContext = salon;
+        //    //tbWebSajt.DataContext = salon;
+        //    //tbPIB.DataContext = salon;
+        //    //tbMaticniBroj.DataContext = salon;
+        //    //tbBrojZiroRacuna.DataContext = salon;
+        //}
+
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow mw = new MainWindow(this.ulogovaniKorisnik);
-            mw.Show();
             this.Close();
         }
 
@@ -93,5 +103,6 @@ namespace POP_SF_11_2015_GUI.GUI
 
             Close();
         }
+
     }
     }

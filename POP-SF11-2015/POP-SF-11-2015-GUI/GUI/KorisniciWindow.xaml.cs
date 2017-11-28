@@ -13,6 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using POP_SF11_2015.Model;
 using POP_SF11_2015.Utils;
+using System.ComponentModel;
 
 namespace POP_SF_11_2015_GUI.GUI
 {
@@ -21,6 +22,7 @@ namespace POP_SF_11_2015_GUI.GUI
     /// </summary>
     public partial class KorisniciWindow : Window
     {
+        private ICollectionView view;
         private Korisnik ulogovaniKorisnik;
 
         public KorisniciWindow(Korisnik ulogovaniKorisnik)
@@ -28,8 +30,18 @@ namespace POP_SF_11_2015_GUI.GUI
             InitializeComponent();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
 
-            dgKorisnici.ItemsSource = Projekat.Instance.Korisnici;
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Korisnici);
+            view.Filter = KorisniciFilter;
+            dgKorisnici.ItemsSource = view;
             dgKorisnici.IsSynchronizedWithCurrentItem = true;
+            dgKorisnici.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+        }
+
+        private bool KorisniciFilter(object item)
+        {
+            //return ((Namestaj)item).Obrisan == false;
+            Korisnik kor = item as Korisnik;
+            return !kor.Obrisan;
         }
 
         private void btnDodajKorisnika_Click(object sender, RoutedEventArgs e)
@@ -81,6 +93,22 @@ namespace POP_SF_11_2015_GUI.GUI
                 }
 
                 GenericSerializer.Serialize("korisnici.xml", Projekat.Instance.Korisnici);
+            }
+        }
+
+        private void dgKorisnici_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if ((string)e.Column.Header == "Obrisan")
+            {
+                e.Cancel = true;
+            }
+            if ((string)e.Column.Header == "KorisnickoIme")
+            {
+                e.Column.Header = "Korisnicko Ime";
+            }
+            if ((string)e.Column.Header == "TipKorisnika")
+            {
+                e.Column.Header = "Tip Korisnika";
             }
         }
     }

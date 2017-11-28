@@ -27,5 +27,12 @@ namespace POP_SF_11_2015_GUI.GUI
             InitializeComponent();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
         }
+
+        private void btnIzlaz_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mw = new MainWindow(this.ulogovaniKorisnik);
+            mw.Show();
+            this.Close();
+        }
     }
 }

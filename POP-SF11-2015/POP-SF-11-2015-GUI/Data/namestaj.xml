@@ -4,63 +4,108 @@
     <Id>1</Id>
     <Naziv>Lampa</Naziv>
     <Sifra>LMP13</Sifra>
+    <TipNamestajaId>3</TipNamestajaId>
     <Cena>15000</Cena>
     <KolicinaUMagacinu>100</KolicinaUMagacinu>
-    <TipNamestajaId>3</TipNamestajaId>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>2</Id>
     <Naziv>Stolica</Naziv>
     <Sifra>STO88</Sifra>
+    <TipNamestajaId>2</TipNamestajaId>
     <Cena>5000</Cena>
     <KolicinaUMagacinu>50</KolicinaUMagacinu>
-    <TipNamestajaId>2</TipNamestajaId>
     <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>3</Id>
     <Naziv>Krevet</Naziv>
     <Sifra>KRE55</Sifra>
+    <TipNamestajaId>1</TipNamestajaId>
     <Cena>9000</Cena>
     <KolicinaUMagacinu>14</KolicinaUMagacinu>
-    <TipNamestajaId>1</TipNamestajaId>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>4</Id>
     <Naziv>Bojler</Naziv>
     <Sifra>BOJ12</Sifra>
+    <TipNamestajaId>2</TipNamestajaId>
     <Cena>14000</Cena>
     <KolicinaUMagacinu>55</KolicinaUMagacinu>
-    <TipNamestajaId>2</TipNamestajaId>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>5</Id>
     <Naziv>Fotelja</Naziv>
     <Sifra>FOT551</Sifra>
+    <TipNamestajaId>2</TipNamestajaId>
     <Cena>4500</Cena>
     <KolicinaUMagacinu>15</KolicinaUMagacinu>
-    <TipNamestajaId>2</TipNamestajaId>
     <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>6</Id>
     <Naziv>Lampa</Naziv>
     <Sifra>SOF333</Sifra>
+    <TipNamestajaId>1</TipNamestajaId>
     <Cena>15000</Cena>
     <KolicinaUMagacinu>15</KolicinaUMagacinu>
-    <TipNamestajaId>1</TipNamestajaId>
     <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>7</Id>
     <Naziv>Nova Polica</Naziv>
     <Sifra>NP11</Sifra>
+    <TipNamestajaId>0</TipNamestajaId>
     <Cena>1500</Cena>
     <KolicinaUMagacinu>550</KolicinaUMagacinu>
-    <TipNamestajaId>0</TipNamestajaId>
     <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>8</Id>
+    <Naziv>Laptop</Naziv>
+    <Sifra>LAP13</Sifra>
+    <TipNamestajaId>3</TipNamestajaId>
+    <Cena>15000</Cena>
+    <KolicinaUMagacinu>15</KolicinaUMagacinu>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>9</Id>
+    <Naziv>Klupa</Naziv>
+    <Sifra>KL1134</Sifra>
+    <TipNamestajaId>0</TipNamestajaId>
+    <Cena>1500</Cena>
+    <KolicinaUMagacinu>10</KolicinaUMagacinu>
+    <Obrisan>false</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>10</Id>
+    <Naziv>Lampurina</Naziv>
+    <Sifra>LAM111</Sifra>
+    <TipNamestajaId>3</TipNamestajaId>
+    <Cena>5000</Cena>
+    <KolicinaUMagacinu>150</KolicinaUMagacinu>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>11</Id>
+    <Naziv>Lampa</Naziv>
+    <Sifra>LMP12</Sifra>
+    <TipNamestajaId>0</TipNamestajaId>
+    <Cena>1000</Cena>
+    <KolicinaUMagacinu>500</KolicinaUMagacinu>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>12</Id>
+    <Naziv>Telefon</Naziv>
+    <Sifra>TEL123</Sifra>
+    <TipNamestajaId>1</TipNamestajaId>
+    <Cena>25000</Cena>
+    <KolicinaUMagacinu>100</KolicinaUMagacinu>
+    <Obrisan>false</Obrisan>
   </Namestaj>
 </ArrayOfNamestaj>

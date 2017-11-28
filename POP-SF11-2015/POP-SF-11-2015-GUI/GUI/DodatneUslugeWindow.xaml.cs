@@ -1,7 +1,9 @@
 ﻿using POP_SF11_2015.Model;
 using POP_SF11_2015.Utils;
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +23,7 @@ namespace POP_SF_11_2015_GUI.GUI
     /// </summary>
     public partial class DodatneUslugeWindow : Window
     {
+        private ICollectionView view;
         private Korisnik ulogovaniKorisnik;
 
         public DodatneUslugeWindow(Korisnik ulogovaniKorisnik)
@@ -28,8 +31,19 @@ namespace POP_SF_11_2015_GUI.GUI
             InitializeComponent();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
 
-            dgDodatneUsluge.ItemsSource = Projekat.Instance.DodatneUsluge;
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.DodatneUsluge);
+            view.Filter = UslugeFilter;
+            dgDodatneUsluge.ItemsSource = view;
+            //dgDodatneUsluge.ItemsSource = Projekat.Instance.DodatneUsluge;
             dgDodatneUsluge.IsSynchronizedWithCurrentItem = true;
+            dgDodatneUsluge.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+        }
+
+        private bool UslugeFilter(object item)
+        {
+            //return ((Namestaj)item).Obrisan == false;
+            DodatnaUsluga du = item as DodatnaUsluga;
+            return !du.Obrisan;
         }
 
         private void btnDodajUslugu_Click(object sender, RoutedEventArgs e)
@@ -70,6 +84,7 @@ namespace POP_SF_11_2015_GUI.GUI
                         if (n.Id == izabranaUsluga.Id)
                         {
                             n.Obrisan = true;
+                            view.Refresh();
                             break;
                         }
                     }
@@ -78,6 +93,14 @@ namespace POP_SF_11_2015_GUI.GUI
                 }
 
                 GenericSerializer.Serialize("dodatne_usluge.xml", Projekat.Instance.DodatneUsluge);
+            }
+        }
+
+        private void dgDodatneUsluge_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+        {
+            if ((string)e.Column.Header == "Obrisan")
+            {
+                e.Cancel = true;
             }
         }
     }

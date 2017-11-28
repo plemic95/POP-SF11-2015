@@ -12,40 +12,41 @@
         <Grid.Background>
             <ImageBrush ImageSource="Images/mainSalon.png"/>
         </Grid.Background>
-        <Button x:Name="btnNamestaj" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="100,200,0,0" Click="btnNamestaj_Click" FontSize="36">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/btnNamestaj.png"/>
-            </Button.Background>
+        
+        <Button x:Name="btnNamestaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="100,200,0,0" Click="btnNamestaj_Click" FontSize="36">
+            <Button.Content>
+                <Image Source="Images/btnNamestaj.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
-        <Button x:Name="btnKorisnici" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="700,200,0,0" Click="btnKorisnici_Click" FontSize="36">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/btnUsers.png"/>
-            </Button.Background>
+        <Button x:Name="btnKorisnici" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="700,200,0,0" Click="btnKorisnici_Click" FontSize="36">
+            <Button.Content>
+                <Image Source="Images/btnUsers.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
-        <Button x:Name="btnAkcije" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="1300,200,0,0" Click="btnAkcije_Click" FontSize="36">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/btnAkcija.png"/>
-            </Button.Background>
+        <Button x:Name="btnAkcije" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="1300,200,0,0" Click="btnAkcije_Click" FontSize="36" Focusable="False">
+            <Button.Content>
+                <Image Source="Images/btnAkcija.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
-        <Button x:Name="btnDodatneUsluge" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="100,550,0,0" Click="btnDodatneUsluge_Click" FontSize="28">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/btnDodatneUsluge.png"/>
-            </Button.Background>
+        <Button x:Name="btnDodatneUsluge" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="100,550,0,0" Click="btnDodatneUsluge_Click" FontSize="28" Focusable="False">
+            <Button.Content>
+                <Image Source="Images/btnDodatneUsluge.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
-        <Button x:Name="btnProdaja" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="700,550,0,0" Click="btnProdaja_Click" FontSize="36">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/btnProdaja.png"/>
-            </Button.Background>
+        <Button x:Name="btnProdaja" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="700,550,0,0" Click="btnProdaja_Click" FontSize="36">
+            <Button.Content>
+                <Image Source="Images/btnProdaja.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
-        <Button x:Name="btnSalon" Content="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="1300,550,0,0" Click="btnSalon_Click" FontSize="36" Grid.RowSpan="2">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/btnSalon.png"/>
-            </Button.Background>
+        <Button x:Name="btnSalon" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="1300,550,0,0" Click="btnSalon_Click" FontSize="36" Grid.RowSpan="2">
+            <Button.Content>
+                <Image Source="Images/btnSalon.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
-        <Button x:Name="btnLogout" Content="" HorizontalAlignment="Left" Margin="1500,850,0,0" Width="300" Height="200" BorderThickness="1" Click="btnLogout_Click">
-            <Button.Background>
-                <ImageBrush ImageSource="Images/btnLogout.png"/>
-            </Button.Background>
+        <Button x:Name="btnLogout" HorizontalAlignment="Left" Margin="1500,850,0,0" Width="300" Height="200" BorderThickness="1" Click="btnLogout_Click">
+            <Button.Content>
+                <Image Source="Images/btnLogout.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
     </Grid>
 </Window>

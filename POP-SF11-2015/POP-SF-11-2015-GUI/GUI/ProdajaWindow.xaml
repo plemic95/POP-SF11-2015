@@ -9,6 +9,10 @@
         WindowState="Maximized"
         WindowStyle="None">
     <Grid Background="#FF6771D4">
-        
+        <Button HorizontalAlignment="Right" x:Name="btnIzlaz" Click="btnIzlaz_Click" Margin="100,800,55,2" Width="200" Height="200" >
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnBack.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
+        </Button>
     </Grid>
 </Window>

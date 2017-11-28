@@ -13,32 +13,26 @@
             <RowDefinition Height="127*"/>
             <RowDefinition Height="33*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" x:Name="dgDodatneUsluge" HorizontalAlignment="Left" Height="700" Margin="100,70,0,0" VerticalAlignment="Top" Width="1800" FontFamily="Arial Black" FontWeight="Bold" FontSize="48" MinColumnWidth="60">
-   <DataGrid.Columns>
-        <DataGridTextColumn MinWidth="150" Width="Auto" Header="Id" Binding="{Binding Id}" />
-        <DataGridTextColumn MinWidth="500" Width="Auto" Header="Naziv" Binding="{Binding Naziv}" />
-        <DataGridTextColumn MinWidth="400" Width="Auto" Header="Cena" Binding="{Binding Cena}" />
-            </DataGrid.Columns>
-        </DataGrid>
-        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="-500,00,0,0" x:Name="btnDodajUslugu" Click="btnDodajUslugu_Click" Content="">
-            <Button.Background>
-                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnAdd.png"/>
-            </Button.Background>
+        <DataGrid Grid.Row="0" x:Name="dgDodatneUsluge" HorizontalAlignment="Left" Height="700" Margin="60,70,0,0" VerticalAlignment="Top" Width="1800" FontFamily="Arial Black" FontWeight="Bold" FontSize="48" MinColumnWidth="60" IsReadOnly="True" AutoGeneratingColumn="dgDodatneUsluge_AutoGeneratingColumn"/>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="-500,00,0,0" x:Name="btnDodajUslugu" Click="btnDodajUslugu_Click">
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnAdd.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
-        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="0,0,0,0" x:Name="btnIzmeniUslugu" Click="btnIzmeniUslugu_Click" Content="">
-            <Button.Background>
-                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnEdit.png"/>
-            </Button.Background>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="0,0,0,0" x:Name="btnIzmeniUslugu" Click="btnIzmeniUslugu_Click">
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnEdit.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
-        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Right" Margin="0,00,0,0"  x:Name="btnIzlaz" Click="btnIzlaz_Click" Content="">
-            <Button.Background>
-                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnBack.png"/>
-            </Button.Background>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Right" Margin="0,00,0,0"  x:Name="btnIzlaz" Click="btnIzlaz_Click">
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnBack.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
-        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="500,00,0,0" x:Name="btnObrisi" Click="btnObrisi_Click" Content="">
-            <Button.Background>
-                <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/btnDelete.png"/>
-            </Button.Background>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="500,00,0,0" x:Name="btnObrisi" Click="btnObrisi_Click">
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnDelete.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
         </Button>
     </Grid>
 </Window>

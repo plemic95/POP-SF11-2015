@@ -10,6 +10,12 @@
     <Id>2</Id>
     <Naziv>Servis</Naziv>
     <Cena>555</Cena>
+    <Obrisan>true</Obrisan>
+  </DodatnaUsluga>
+  <DodatnaUsluga>
+    <Id>3</Id>
+    <Naziv>Spedicija</Naziv>
+    <Cena>5000</Cena>
     <Obrisan>false</Obrisan>
   </DodatnaUsluga>
 </ArrayOfDodatnaUsluga>

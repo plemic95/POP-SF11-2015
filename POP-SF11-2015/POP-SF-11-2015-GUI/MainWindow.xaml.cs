@@ -23,7 +23,9 @@ namespace POP_SF_11_2015_GUI
     public partial class MainWindow : Window
     {
 
+
         private Korisnik ulogovaniKorisnik;
+        private Salon salon;
 
         public MainWindow(Korisnik ulogovaniKorisnik)
         {
@@ -82,8 +84,10 @@ namespace POP_SF_11_2015_GUI
 
         private void btnSalon_Click(object sender, RoutedEventArgs e)
         {
-            SalonEditWindow sew = new SalonEditWindow(this.ulogovaniKorisnik, SalonEditWindow.TipOperacije.IZMENA);
-            sew.Show();
+            var salon = new Salon();
+
+            var salonProzor = new SalonEditWindow(salon, SalonEditWindow.TipOperacije.IZMENA);
+            salonProzor.ShowDialog();
             this.Close();
         }
 

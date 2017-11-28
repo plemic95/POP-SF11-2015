@@ -42,6 +42,7 @@ namespace POP_SF_11_2015_GUI.GUI
 
             tbNaziv.DataContext = dodatnaUsluga;
             tbCena.DataContext = dodatnaUsluga;
+            tbId.IsEnabled = false;
 
         }
 

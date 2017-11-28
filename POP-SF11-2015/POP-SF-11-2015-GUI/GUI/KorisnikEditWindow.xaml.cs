@@ -41,5 +41,14 @@ namespace POP_SF_11_2015_GUI.GUI
 
         }
 
+        private void btnIzlaz_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

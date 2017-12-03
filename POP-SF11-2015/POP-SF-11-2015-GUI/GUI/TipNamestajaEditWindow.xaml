@@ -1,0 +1,30 @@
+﻿<Window x:Class="POP_SF_11_2015_GUI.GUI.TipNamestajaEditWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
+        mc:Ignorable="d"
+        Title="TipNamestajaEditWindow"        
+        WindowState="Maximized"
+        WindowStyle="None">
+    <Grid Background="#FF6771D4">
+
+        <Label x:Name="lblId" HorizontalAlignment="Center" Margin="-500,250,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Id</Label>
+        <TextBox HorizontalAlignment="Center" Text="{Binding Path=Id}" Margin="500,250,0,0" VerticalAlignment="Top" Name="tbId" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
+
+        <Label x:Name="lblNaziv" HorizontalAlignment="Center" Margin="-500,400,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Tip Namestaja</Label>
+        <TextBox HorizontalAlignment="Center" Text="{Binding Path=Naziv}" Margin="500,400,0,0" VerticalAlignment="Top" Name="tbNaziv" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
+
+        <Button HorizontalAlignment="Center" x:Name="btnSacuvaj" Click="btnSacuvaj_Click" Margin="0,800,0,0" Width="200" Height="200">
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnSave.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
+        </Button>
+        <Button HorizontalAlignment="Right" x:Name="btnIzlaz" Click="btnIzlaz_Click" Margin="100,800,55,2" Width="200" Height="200" >
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnBack.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
+        </Button>
+    </Grid>
+</Window>

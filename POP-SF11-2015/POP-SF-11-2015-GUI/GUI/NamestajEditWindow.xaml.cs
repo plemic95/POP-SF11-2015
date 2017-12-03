@@ -31,7 +31,7 @@ namespace POP_SF_11_2015_GUI.GUI
         private Namestaj namestaj;
         private TipOperacije operacija;
 
-        public NamestajEditWindow(Namestaj namestaj, TipOperacije operacija)
+        public NamestajEditWindow(Namestaj namestaj, TipOperacije operacija = TipOperacije.DODAVANJE)
         {
             InitializeComponent();
 
@@ -58,46 +58,60 @@ namespace POP_SF_11_2015_GUI.GUI
 
             var listaNamestaja = Projekat.Instance.Namestaj;
 
-            switch (operacija)
+            this.DialogResult = true;
+            if (operacija == TipOperacije.DODAVANJE)
             {
-                case TipOperacije.DODAVANJE:
-                    namestaj.Id = listaNamestaja.Count + 1;
-                    listaNamestaja.Add(namestaj);
-                    break;
-                case TipOperacije.IZMENA:
-                    foreach (var n in listaNamestaja)
-                    {
-                        if (n.Id == namestaj.Id)
-                        {
-                            n.TipNamestajaId = namestaj.TipNamestajaId;
-                            n.Naziv = namestaj.Naziv;
-                            n.Sifra = namestaj.Sifra;
-                            n.Cena = namestaj.Cena;
-                            n.KolicinaUMagacinu = namestaj.KolicinaUMagacinu;
-                            break;
-                        }
-                    }
-                    break;
-                    //var namestajZaIzmenu = listaNamestaja.SingleOrDefault(x => x.Id == namestaj.Id);
-                    // var namestajZaIzmenu = Namestaj.GetById(namestaj.Id);
-                    //namestajZaIzmenu.TipNamestajaId = tipNamestajaId;
-                    //namestajZaIzmenu.Naziv = tbNaziv.Text;
-                    ////namestajZaIzmenu.TipNamestajaId = ((TipNamestaja)cbTipNamestaja.SelectedItem).Id;
-                    //break;
+                namestaj.Id = listaNamestaja.Count + 1;
+                listaNamestaja.Add(namestaj);
             }
+
             GenericSerializer.Serialize("namestaj.xml", listaNamestaja);
-            //string naziv = tbNaziv.Text;
 
-        //    namestaj = new Namestaj()
-        //    {
-        //        Id = listaNamestaja.Count + 1,
-        //        Naziv = naziv
-        //    };
-
-        //    listaNamestaja.Add(namestaj);
-            //Projekat.Instance.Namestaj = listaNamestaja;
 
             Close();
+            //   this.Close();
+
+            //   var listaNamestaja = Projekat.Instance.Namestaj;
+
+            //  switch (operacija)
+            //  {
+            //      case TipOperacije.DODAVANJE:
+            //          namestaj.Id = listaNamestaja.Count + 1;
+            //          listaNamestaja.Add(namestaj);
+            //          break;
+            //      case TipOperacije.IZMENA:
+            //          foreach (var n in listaNamestaja)
+            //          {
+            //              if (n.Id == namestaj.Id)
+            //              {
+            //                  n.TipNamestajaId = namestaj.TipNamestajaId;
+            //                  n.Naziv = namestaj.Naziv;
+            //                  n.Sifra = namestaj.Sifra;
+            //                  n.Cena = namestaj.Cena;
+            //                  n.KolicinaUMagacinu = namestaj.KolicinaUMagacinu;
+            //                  listaNamestaja.Add(namestaj);
+            //                  break;
+            //              }
+            //          }
+            //          break;
+            //var namestajZaIzmenu = listaNamestaja.SingleOrDefault(x => x.Id == namestaj.Id);
+            // var namestajZaIzmenu = Namestaj.GetById(namestaj.Id);
+            //namestajZaIzmenu.TipNamestajaId = tipNamestajaId;
+            //namestajZaIzmenu.Naziv = tbNaziv.Text;
+            ////namestajZaIzmenu.TipNamestajaId = ((TipNamestaja)cbTipNamestaja.SelectedItem).Id;
+            //break;
+            // }
+            //string naziv = tbNaziv.Text;
+
+            //    namestaj = new Namestaj()
+            //    {
+            //        Id = listaNamestaja.Count + 1,
+            //        Naziv = naziv
+            //    };
+
+            //    listaNamestaja.Add(namestaj);
+            //Projekat.Instance.Namestaj = listaNamestaja;
+
         }
     }
 }

@@ -16,10 +16,13 @@
         <TextBox HorizontalAlignment="Center" Text="{Binding Path=Prezime}" Margin="500,280,0,0" VerticalAlignment="Top" Name="tbPrezime" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
 
         <Label x:Name="lblKorisnickoIme" HorizontalAlignment="Center" Margin="-500,420,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Korisnicko Ime</Label>
-        <ComboBox Name="tbKorisnickoIme" SelectedItem="{Binding Path=KorisnickoIme}" Margin="500,420,0,0" FontFamily="Arial Black" FontWeight="Bold" FontSize="48" Width="400" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+        <TextBox Name="tbKorisnickoIme" Text="{Binding Path=KorisnickoIme}" Margin="500,420,0,0" FontFamily="Arial Black" FontWeight="Bold" FontSize="48" Width="400" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
         <Label x:Name="lblLozinka" HorizontalAlignment="Center" Margin="-500,560,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Lozinka</Label>
         <TextBox HorizontalAlignment="Center" Text="{Binding Path=Lozinka}" Margin="500,560,0,0" VerticalAlignment="Top" Name="tbLozinka" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
+
+        <Label x:Name="lblTipKorisnika" HorizontalAlignment="Center" Margin="-500,700,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Tip Korisnika</Label>
+        <ComboBox Name="cbTipKorisnika" SelectedItem="{Binding Path=TipKorisnika}" Margin="500,700,0,0" FontFamily="Arial Black" FontWeight="Bold" FontSize="48" Width="400" Height="55" HorizontalAlignment="Center" VerticalAlignment="Top"/>
 
         <Button HorizontalAlignment="Center" x:Name="btnSacuvaj" Click="btnSacuvaj_Click" Margin="0,800,0,0" Width="200" Height="200" >
             <Button.Content>

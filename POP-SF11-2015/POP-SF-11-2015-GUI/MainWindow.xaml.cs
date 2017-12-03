@@ -23,7 +23,6 @@ namespace POP_SF_11_2015_GUI
     public partial class MainWindow : Window
     {
 
-
         private Korisnik ulogovaniKorisnik;
         private Salon salon;
 
@@ -32,10 +31,11 @@ namespace POP_SF_11_2015_GUI
             InitializeComponent();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
 
-            //  if (ulogovaniKorisnik.TipKorisnika.Oznaka != 1)
+
+            //  if (ulogovaniKorisnik.TipKorisnika.Administrator)
             //  {
-            //      bKorisnici.IsEnabled = false;
-            //  }
+            //      btnKorisnici.IsEnabled = false;
+            //   }
 
             //public MainWindow()
             //{
@@ -84,11 +84,15 @@ namespace POP_SF_11_2015_GUI
 
         private void btnSalon_Click(object sender, RoutedEventArgs e)
         {
-            var salon = new Salon();
 
-            var salonProzor = new SalonEditWindow(salon, SalonEditWindow.TipOperacije.IZMENA);
-            salonProzor.ShowDialog();
+            SalonWindow sw = new SalonWindow(this.ulogovaniKorisnik);
+            sw.Show();
             this.Close();
+            //var salon = new Salon();
+
+            //var salonProzor = new SalonEditWindow(salon, SalonEditWindow.TipOperacije.IZMENA);
+            //salonProzor.ShowDialog();
+            //this.Close();
         }
 
         private void btnLogout_Click(object sender, RoutedEventArgs e)

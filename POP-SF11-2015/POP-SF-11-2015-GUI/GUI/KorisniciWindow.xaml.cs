@@ -60,10 +60,23 @@ namespace POP_SF_11_2015_GUI.GUI
 
         private void btnIzmeniKorisnika_Click(object sender, RoutedEventArgs e)
         {
-            var izabraniKorisnik = (Korisnik)dgKorisnici.SelectedItem;
 
-            var korisnikProzor = new KorisnikEditWindow(izabraniKorisnik, KorisnikEditWindow.TipOperacije.IZMENA);
-            korisnikProzor.ShowDialog();
+            Korisnik izabraniKorisnik = view.CurrentItem as Korisnik;
+
+            if (izabraniKorisnik != null)
+            {
+                Korisnik old = (Korisnik)izabraniKorisnik.Clone();
+                KorisnikEditWindow kw = new KorisnikEditWindow(izabraniKorisnik, KorisnikEditWindow.TipOperacije.IZMENA);
+                if (kw.ShowDialog() != true)
+                {
+                    int index = Projekat.Instance.Korisnici.IndexOf(izabraniKorisnik);
+                    Projekat.Instance.Korisnici[index] = old;
+                }
+            }
+         //   var izabraniKorisnik = (Korisnik)dgKorisnici.SelectedItem;
+
+         //   var korisnikProzor = new KorisnikEditWindow(izabraniKorisnik, KorisnikEditWindow.TipOperacije.IZMENA);
+         //   korisnikProzor.ShowDialog();
 
         }
 
@@ -80,11 +93,12 @@ namespace POP_SF_11_2015_GUI.GUI
                 var izabraniKorisnik = (Korisnik)dgKorisnici.SelectedItem;
                 if (MessageBox.Show($"Da li ste sigurni da zelite da izbrisete: { izabraniKorisnik.KorisnickoIme}?", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    foreach (var n in Projekat.Instance.Korisnici)
+                    foreach (var k in Projekat.Instance.Korisnici)
                     {
-                        if (n.Id == izabraniKorisnik.Id)
+                        if (k.Id == izabraniKorisnik.Id)
                         {
-                            n.Obrisan = true;
+                            k.Obrisan = true;
+                            view.Refresh();
                             break;
                         }
                     }
@@ -102,13 +116,31 @@ namespace POP_SF_11_2015_GUI.GUI
             {
                 e.Cancel = true;
             }
+            if ((string)e.Column.Header == "Id")
+            {
+                e.Column.Width = 100;
+            }
+            if ((string)e.Column.Header == "Ime")
+            {
+                e.Column.Width = 280;
+            }
+            if ((string)e.Column.Header == "Prezime")
+            {
+                e.Column.Width = 280;
+            }
             if ((string)e.Column.Header == "KorisnickoIme")
             {
                 e.Column.Header = "Korisnicko Ime";
+                e.Column.Width = 420;
+            }
+            if ((string)e.Column.Header == "Lozinka")
+            {
+                e.Column.Width = 420;
             }
             if ((string)e.Column.Header == "TipKorisnika")
             {
                 e.Column.Header = "Tip Korisnika";
+                e.Column.Width = 290;
             }
         }
     }

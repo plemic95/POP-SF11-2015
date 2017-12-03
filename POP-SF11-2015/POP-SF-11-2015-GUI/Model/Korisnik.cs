@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace POP_SF11_2015.Model
 {
@@ -77,14 +78,15 @@ namespace POP_SF11_2015.Model
             }
         }
 
+
         private TipKorisnika tipKorisnika;
 
         public TipKorisnika TipKorisnika
         {
             get { return tipKorisnika; }
             set
-            {
-                tipKorisnika = value;
+           {
+               tipKorisnika = value;
                 OnPropertyChanged("TipKorisnika");
             }
         }
@@ -99,6 +101,19 @@ namespace POP_SF11_2015.Model
                 obrisan = value;
                 OnPropertyChanged("Obrisan");
             }
+        }
+
+
+        public object Clone()
+        {
+            Korisnik kopija = new Korisnik();
+            kopija.Id = Id;
+            kopija.Ime = Ime;
+            kopija.Prezime = Prezime;
+            kopija.KorisnickoIme = KorisnickoIme;
+            kopija.Lozinka = Lozinka;
+            kopija.TipKorisnika = TipKorisnika;
+            return kopija;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

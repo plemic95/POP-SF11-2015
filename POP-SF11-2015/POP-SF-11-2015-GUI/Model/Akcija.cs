@@ -22,6 +22,31 @@ namespace POP_SF11_2015.Model
             }
         }
 
+        private string imeAkcije;
+
+        public string ImeAkcije
+        {
+            get { return imeAkcije; }
+            set
+            {
+                imeAkcije = value;
+                OnPropertyChanged("ImeAkcije");
+            }
+        }
+
+        private string popust;
+
+        public string Popust
+        {
+            get { return popust; }
+            set
+            {
+                popust = value;
+                OnPropertyChanged("Popust");
+            }
+        }
+
+
         private DateTime datumPocetka;
 
         public DateTime DatumPocetka
@@ -31,18 +56,6 @@ namespace POP_SF11_2015.Model
             {
                 datumPocetka = value;
                 OnPropertyChanged("DatumPocetka");
-            }
-        }
-
-        private decimal popust;
-
-        public decimal Popust
-        {
-            get { return popust; }
-            set
-            {
-                popust = value;
-                OnPropertyChanged("Popust");
             }
         }
 
@@ -68,6 +81,31 @@ namespace POP_SF11_2015.Model
                 obrisan = value;
                 OnPropertyChanged("Obrisan");
             }
+        }
+
+        public object Clone()
+        {
+            Akcija kopija = new Akcija();
+            kopija.Id = Id;
+            kopija.ImeAkcije = ImeAkcije;
+            kopija.Popust = Popust;
+            kopija.DatumPocetka = DatumPocetka;
+            kopija.DatumZavrsetka = DatumZavrsetka;
+            return kopija;
+        }
+
+        public static Akcija GetById(int id)
+        {
+            foreach (var akcija in Projekat.Instance.Akcije)
+            {
+                if (akcija.Id == id)
+                {
+                    return akcija;
+                }
+            }
+            return null;
+
+            //return Projekat.Instance.TipoviNamestaja.SingleOrDefault(x => x.Id == id) ;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

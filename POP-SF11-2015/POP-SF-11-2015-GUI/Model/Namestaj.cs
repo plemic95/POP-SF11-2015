@@ -105,6 +105,17 @@ namespace POP_SF11_2015.Model
             }
         }
 
+        private double akcijskaCena;
+
+        public double AkcijskaCena
+        {
+            get { return akcijskaCena; }
+            set
+            {
+                akcijskaCena = value;
+                OnPropertyChanged("AkcijskaCena");
+            }
+        }
 
         private bool obrisan;
 
@@ -117,6 +128,9 @@ namespace POP_SF11_2015.Model
                 OnPropertyChanged("Obrisan");
             }
         }
+
+
+
 
 
         //public int Id { get; set; }
@@ -134,6 +148,19 @@ namespace POP_SF11_2015.Model
         //public Akcija Akcija { get; set; }
 
         //public bool Obrisan { get; set; }
+
+        public object Clone()
+        {
+            Namestaj kopija = new Namestaj();
+            kopija.Id = Id;
+            kopija.Naziv = Naziv;
+            kopija.Sifra = Sifra;
+            kopija.TipNamestajaId = TipNamestajaId;
+            kopija.Cena = Cena;
+            kopija.KolicinaUMagacinu = KolicinaUMagacinu;
+            kopija.AkcijskaCena = AkcijskaCena;
+            return kopija;
+        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 

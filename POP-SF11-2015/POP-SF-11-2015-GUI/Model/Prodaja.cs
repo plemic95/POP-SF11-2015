@@ -1,27 +1,129 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace POP_SF11_2015.Model
 {
-    public class Prodaja
+    public class Prodaja: INotifyPropertyChanged
+
     {
-        public int Id { get; set; }
+        private int id;
 
-        public List<Namestaj> NamestajZaProdaju { get; set; }
+        public int Id
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+                OnPropertyChanged("Id");
+            }
+        }
 
-        public DateTime DatumProdaje { get; set; }
+        private DateTime datumProdaje;
 
-        public string BrojRacuna { get; set; }
+        public DateTime DatumProdaje
+        {
+            get { return datumProdaje; }
+            set
+            {
+                datumProdaje = value;
+                OnPropertyChanged("DatumProdaje");
+            }
+        }
 
-        public string Kupac { get; set; }
+        private string brojRacuna;
 
-        public List<DodatnaUsluga> DodatneUsluge { get; set; }
+        public string BrojRacuna
+        {
+            get { return brojRacuna; }
+            set
+            {
+                brojRacuna = value;
+                OnPropertyChanged("BrojRacuna");
+            }
+        }
 
-        public const double PDV = 0.02;
+        private string kupac;
 
-        public double UkupnaCena { get; set; }
+        public string Kupac
+        {
+            get { return kupac; }
+            set
+            {
+                kupac = value;
+                OnPropertyChanged("Kupac");
+            }
+        }
+
+        private double ukupnaCena;
+
+        public double UkupnaCena
+        {
+            get { return ukupnaCena; }
+            set
+            {
+                ukupnaCena = value;
+                OnPropertyChanged("UkupnaCena");
+            }
+        }
+
+
+
+        private ObservableCollection<Namestaj> namestajZaProdaju = new ObservableCollection<Namestaj>();
+
+        public ObservableCollection<Namestaj> NamestajZaProdaju
+        {
+            get { return namestajZaProdaju; }
+            set
+            {
+                namestajZaProdaju = value;
+                OnPropertyChanged("NamestajZaProdaju");
+            }
+        }
+
+        private ObservableCollection<DodatnaUsluga> dodatnaUsluga = new ObservableCollection<DodatnaUsluga>();
+
+        public ObservableCollection<DodatnaUsluga> DodatnaUsluga
+        {
+            get { return dodatnaUsluga; }
+            set
+            {
+                dodatnaUsluga = value;
+                OnPropertyChanged("DodatnaUsluga");
+            }
+        }
+
+
+        public object Clone()
+        {
+            Prodaja kopija = new Prodaja();
+            kopija.Id = Id;
+            kopija.DatumProdaje = DatumProdaje;
+            kopija.BrojRacuna = BrojRacuna;
+            kopija.Kupac = Kupac;
+            kopija.UkupnaCena = UkupnaCena;
+            kopija.NamestajZaProdaju = NamestajZaProdaju;
+            kopija.DodatnaUsluga = DodatnaUsluga;
+            return kopija;
+        }
+
+
+        //  public const double PDV = 0.02;
+
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged(string propertyName)
+        {
+            if (PropertyChanged != null)
+            {
+                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
     }
 }

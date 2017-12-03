@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfProdaja xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Prodaja>
+    <Id>1</Id>
+    <DatumProdaje>2016-07-01T00:00:00</DatumProdaje>
+    <BrojRacuna>PR1</BrojRacuna>
+    <Kupac>Sale</Kupac>
+    <UkupnaCena>0</UkupnaCena>
+    <NamestajZaProdaju>
+      <Namestaj>
+        <Id>1</Id>
+        <Naziv>John</Naziv>
+        <TipNamestajaId>0</TipNamestajaId>
+        <Cena>0</Cena>
+        <KolicinaUMagacinu>0</KolicinaUMagacinu>
+        <AkcijskaCena>0</AkcijskaCena>
+        <Obrisan>false</Obrisan>
+      </Namestaj>
+      <Namestaj>
+        <Id>2</Id>
+        <Naziv>Mile</Naziv>
+        <TipNamestajaId>0</TipNamestajaId>
+        <Cena>0</Cena>
+        <KolicinaUMagacinu>0</KolicinaUMagacinu>
+        <AkcijskaCena>0</AkcijskaCena>
+        <Obrisan>false</Obrisan>
+      </Namestaj>
+    </NamestajZaProdaju>
+    <DodatnaUsluga />
+  </Prodaja>
+  <Prodaja>
+    <Id>3</Id>
+    <DatumProdaje>0001-01-01T00:00:00</DatumProdaje>
+    <BrojRacuna>RC55</BrojRacuna>
+    <Kupac>Miki</Kupac>
+    <UkupnaCena>0</UkupnaCena>
+    <NamestajZaProdaju />
+    <DodatnaUsluga />
+  </Prodaja>
+</ArrayOfProdaja>

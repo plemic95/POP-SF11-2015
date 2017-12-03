@@ -4,17 +4,29 @@
     <Id>1</Id>
     <Naziv>Transport</Naziv>
     <Cena>777</Cena>
-    <Obrisan>false</Obrisan>
+    <Obrisan>true</Obrisan>
   </DodatnaUsluga>
   <DodatnaUsluga>
     <Id>2</Id>
     <Naziv>Servis</Naziv>
     <Cena>555</Cena>
-    <Obrisan>true</Obrisan>
+    <Obrisan>false</Obrisan>
   </DodatnaUsluga>
   <DodatnaUsluga>
     <Id>3</Id>
     <Naziv>Spedicija</Naziv>
+    <Cena>5000</Cena>
+    <Obrisan>true</Obrisan>
+  </DodatnaUsluga>
+  <DodatnaUsluga>
+    <Id>4</Id>
+    <Naziv>Kurir</Naziv>
+    <Cena>900</Cena>
+    <Obrisan>false</Obrisan>
+  </DodatnaUsluga>
+  <DodatnaUsluga>
+    <Id>5</Id>
+    <Naziv>Nekaaaaa</Naziv>
     <Cena>5000</Cena>
     <Obrisan>false</Obrisan>
   </DodatnaUsluga>

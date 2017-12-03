@@ -60,10 +60,23 @@ namespace POP_SF_11_2015_GUI.GUI
 
         private void btnIzmeniUslugu_Click(object sender, RoutedEventArgs e)
         {
-            var izabranaUsluga = (DodatnaUsluga)dgDodatneUsluge.SelectedItem;
 
-            var uslugaProzor = new DodatneUslugeEditWindow(izabranaUsluga, DodatneUslugeEditWindow.TipOperacije.IZMENA);
-            uslugaProzor.ShowDialog();
+            DodatnaUsluga izabranaUsluga = view.CurrentItem as DodatnaUsluga;
+
+            if (izabranaUsluga != null)
+            {
+                DodatnaUsluga old = (DodatnaUsluga)izabranaUsluga.Clone();
+                DodatneUslugeEditWindow dw = new DodatneUslugeEditWindow(izabranaUsluga, DodatneUslugeEditWindow.TipOperacije.IZMENA);
+                if (dw.ShowDialog() != true)
+                {
+                    int index = Projekat.Instance.DodatneUsluge.IndexOf(izabranaUsluga);
+                    Projekat.Instance.DodatneUsluge[index] = old;
+                }
+            }
+            //var izabranaUsluga = (DodatnaUsluga)dgDodatneUsluge.SelectedItem;
+
+            //var uslugaProzor = new DodatneUslugeEditWindow(izabranaUsluga, DodatneUslugeEditWindow.TipOperacije.IZMENA);
+            //uslugaProzor.ShowDialog();
         }
 
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
@@ -101,6 +114,18 @@ namespace POP_SF_11_2015_GUI.GUI
             if ((string)e.Column.Header == "Obrisan")
             {
                 e.Cancel = true;
+            }
+            if ((string)e.Column.Header == "Id")
+            {
+                e.Column.Width = 100;
+            }
+            if ((string)e.Column.Header == "Naziv")
+            {
+                e.Column.Width = 1000;
+            }
+            if ((string)e.Column.Header == "Cena")
+            {
+                e.Column.Width = 690;
             }
         }
     }

@@ -57,6 +57,15 @@ namespace POP_SF11_2015.Model
             }
         }
 
+        public object Clone()
+        {
+            DodatnaUsluga kopija = new DodatnaUsluga();
+            kopija.Id = Id;
+            kopija.Naziv = Naziv;
+            kopija.Cena = Cena;
+            return kopija;
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         protected void OnPropertyChanged(string propertyName)

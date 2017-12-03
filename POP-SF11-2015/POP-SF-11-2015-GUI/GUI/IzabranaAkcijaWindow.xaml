@@ -1,0 +1,33 @@
+﻿<Window x:Class="POP_SF_11_2015_GUI.GUI.IzabranaAkcijaWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
+        mc:Ignorable="d"
+        Title="IzabranaAkcijaWindow"
+        WindowState="Maximized"
+        WindowStyle="None">
+    <Grid Background="#FF6771D4">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="127*"/>
+            <RowDefinition Height="33*"/>
+        </Grid.RowDefinitions>
+        <DataGrid Grid.Row="0" x:Name="dgNamestajAkcija" HorizontalAlignment="Left" Height="700" Margin="60,70,0,0" VerticalAlignment="Top" Width="1800" FontFamily="Arial Black" FontWeight="Bold" FontSize="36" IsReadOnly="True" AutoGeneratingColumn="dgNamestajAkcija_AutoGeneratingColumn" />
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="-500,00,0,0"  x:Name="btnDodaj" Click="btnDodaj_Click">
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnAdd.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
+        </Button>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="0,00,0,0"  x:Name="btnShop" Click="btnShop_Click">
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnShop.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
+        </Button>
+        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Right" Margin="0,00,0,0"  x:Name="btnIzlaz" Click="btnIzlaz_Click">
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnBack.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
+        </Button>
+    </Grid>
+</Window>

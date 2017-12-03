@@ -1,4 +1,5 @@
 ﻿using POP_SF11_2015.Model;
+using POP_SF11_2015.Utils;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,13 +32,23 @@ namespace POP_SF_11_2015_GUI.GUI
         private TipOperacije operacija;
 
 
-        public KorisnikEditWindow(Korisnik korisnik, TipOperacije operacija)
+        public KorisnikEditWindow(Korisnik korisnik, TipOperacije operacija = TipOperacije.DODAVANJE)
         {
             InitializeComponent();
 
 
             this.korisnik = korisnik;
             this.operacija = operacija;
+
+            // cbTipKorisnika.ItemsSource = Projekat.Instance.TipoviKorisnika;
+
+            cbTipKorisnika.ItemsSource = Enum.GetValues(typeof(TipKorisnika)).Cast<TipKorisnika>();
+
+            tbIme.DataContext = korisnik;
+            tbPrezime.DataContext = korisnik;
+            tbKorisnickoIme.DataContext = korisnik;
+            tbLozinka.DataContext = korisnik;
+            cbTipKorisnika.DataContext = korisnik;
 
         }
 
@@ -48,7 +59,45 @@ namespace POP_SF_11_2015_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
+            var listaKorisnika = Projekat.Instance.Korisnici;
 
+            this.DialogResult = true;
+            if (operacija == TipOperacije.DODAVANJE)
+            {
+                korisnik.Id = listaKorisnika.Count + 1;
+                listaKorisnika.Add(korisnik);
+            }
+
+            GenericSerializer.Serialize("korisnici.xml", listaKorisnika);
+
+
+            Close();
+
+            //switch (operacija)
+            //{
+            //    case TipOperacije.DODAVANJE:
+            //        korisnik.Id = listaKorisnika.Count + 1;
+            //        listaKorisnika.Add(korisnik);
+            //        break;
+            //    case TipOperacije.IZMENA:
+            //        foreach (var k in listaKorisnika)
+            //        {
+            //            if (k.Id == korisnik.Id)
+            //            {
+            //                k.Ime = korisnik.Ime;
+            //                k.Prezime = korisnik.Prezime;
+            //                k.KorisnickoIme = korisnik.KorisnickoIme;
+            //                k.Lozinka = korisnik.Lozinka;
+            //                k.TipKorisnika = korisnik.TipKorisnika;
+            //                break;
+            //            }
+            //        }
+            //        break;
+
+            //}
+            //GenericSerializer.Serialize("korisnici.xml", listaKorisnika);
+
+            //Close();
         }
     }
 }

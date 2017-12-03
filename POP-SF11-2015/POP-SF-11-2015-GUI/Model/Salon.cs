@@ -71,15 +71,15 @@ namespace POP_SF11_2015.Model
         }
 
 
-        private string websajt;
+        private string webSajt;
 
-        public string Websajt
+        public string WebSajt
         {
-            get { return websajt; }
+            get { return webSajt; }
             set
             {
-                websajt = value;
-                OnPropertyChanged("Websajt");
+                webSajt = value;
+                OnPropertyChanged("WebSajt");
             }
         }
 
@@ -117,6 +117,21 @@ namespace POP_SF11_2015.Model
                 brojZiroRacuna = value;
                 OnPropertyChanged("BrojZiroRacuna");
             }
+        }
+
+        public object Clone()
+        {
+            Salon kopija = new Salon();
+            kopija.Id = Id;
+            kopija.Naziv = Naziv;
+            kopija.Adresa = Adresa;
+            kopija.Telefon = Telefon;
+            kopija.Email = Email;
+            kopija.WebSajt = WebSajt;
+            kopija.PIB = PIB;
+            kopija.MaticniBroj = MaticniBroj;
+            kopija.BrojZiroRacuna = BrojZiroRacuna;
+            return kopija;
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

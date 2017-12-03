@@ -36,42 +36,58 @@ namespace POP_SF_11_2015_GUI.GUI
         {
             InitializeComponent();
 
-
             this.dodatnaUsluga = dodatnaUsluga;
             this.operacija = operacija;
 
             tbNaziv.DataContext = dodatnaUsluga;
             tbCena.DataContext = dodatnaUsluga;
+            tbId.DataContext = dodatnaUsluga;
             tbId.IsEnabled = false;
 
         }
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
+
             var listaUsluga = Projekat.Instance.DodatneUsluge;
 
-            switch (operacija)
+            this.DialogResult = true;
+            if (operacija == TipOperacije.DODAVANJE)
             {
-                case TipOperacije.DODAVANJE:
-                    dodatnaUsluga.Id = listaUsluga.Count + 1;
-                    listaUsluga.Add(dodatnaUsluga);
-                    break;
-                case TipOperacije.IZMENA:
-                    foreach (var du in listaUsluga)
-                    {
-                        if (du.Id == dodatnaUsluga.Id)
-                        {
-                            du.Naziv = dodatnaUsluga.Naziv;
-                            du.Cena = dodatnaUsluga.Cena;
-                            break;
-                        }
-                    }
-                    break;
+                dodatnaUsluga.Id = listaUsluga.Count + 1;
+                listaUsluga.Add(dodatnaUsluga);
             }
+
             GenericSerializer.Serialize("dodatne_usluge.xml", listaUsluga);
 
 
             Close();
+
+            //var listaUsluga = Projekat.Instance.DodatneUsluge;
+
+            //switch (operacija)
+            //{
+            //    case TipOperacije.DODAVANJE:
+
+            //        dodatnaUsluga.Id = listaUsluga.Count + 1;
+            //        listaUsluga.Add(dodatnaUsluga);
+            //        break;
+            //    case TipOperacije.IZMENA:
+            //        foreach (var du in listaUsluga)
+            //        {
+            //            if (du.Id == dodatnaUsluga.Id)
+            //            {
+            //                du.Naziv = dodatnaUsluga.Naziv;
+            //                du.Cena = dodatnaUsluga.Cena;
+            //                break;
+            //            }
+            //        }
+            //        break;
+            //}
+            //GenericSerializer.Serialize("dodatne_usluge.xml", listaUsluga);
+
+
+            //Close();
         }
 
 

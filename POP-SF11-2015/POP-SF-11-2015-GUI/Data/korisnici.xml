@@ -18,4 +18,22 @@
     <TipKorisnika>Prodavac</TipKorisnika>
     <Obrisan>false</Obrisan>
   </Korisnik>
+  <Korisnik>
+    <Id>3</Id>
+    <Ime>Deni</Ime>
+    <Prezime>Tomasovic</Prezime>
+    <KorisnickoIme>devito</KorisnickoIme>
+    <Lozinka>denikralj</Lozinka>
+    <TipKorisnika>Prodavac</TipKorisnika>
+    <Obrisan>true</Obrisan>
+  </Korisnik>
+  <Korisnik>
+    <Id>4</Id>
+    <Ime>Sara</Ime>
+    <Prezime>Saric</Prezime>
+    <KorisnickoIme>saki55</KorisnickoIme>
+    <Lozinka>331</Lozinka>
+    <TipKorisnika>Prodavac</TipKorisnika>
+    <Obrisan>true</Obrisan>
+  </Korisnik>
 </ArrayOfKorisnik>

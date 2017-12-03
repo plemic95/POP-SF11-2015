@@ -29,13 +29,14 @@ namespace POP_SF_11_2015_GUI.GUI
 
         private Salon salon;
         private TipOperacije operacija;
+        private Korisnik ulogovaniKorisnik;
 
         //private Korisnik ulogovaniKorisnik;
         //private TipOperacije iZMENA;
 
 
 
-        public SalonEditWindow(Salon salon, TipOperacije operacija)
+        public SalonEditWindow(Salon salon, TipOperacije operacija = TipOperacije.IZMENA)
         {
             InitializeComponent();
             this.salon = salon;
@@ -43,6 +44,7 @@ namespace POP_SF_11_2015_GUI.GUI
      //       this.iZMENA = iZMENA;
 
             tbId.IsEnabled = false;
+            tbId.DataContext = salon;
             tbNaziv.DataContext = salon;
             tbAdresa.DataContext = salon;
             tbTelefon.DataContext = salon;
@@ -70,6 +72,8 @@ namespace POP_SF_11_2015_GUI.GUI
 
         private void btnIzlaz_Click(object sender, RoutedEventArgs e)
         {
+            MainWindow mw = new MainWindow(this.ulogovaniKorisnik);
+            mw.Show();
             this.Close();
         }
 
@@ -77,31 +81,42 @@ namespace POP_SF_11_2015_GUI.GUI
         {
             var listaSalon = Projekat.Instance.Salon;
 
-            switch (operacija)
+            this.DialogResult = true;
+            if (operacija == TipOperacije.DODAVANJE)
             {
-                case TipOperacije.DODAVANJE:
-                    break;
-                case TipOperacije.IZMENA:
-                    foreach (var s in listaSalon)
-                    {
-                        if (s.Id == salon.Id)
-                        {
-                            s.Naziv = salon.Naziv;
-                            s.Adresa = salon.Adresa;
-                            s.Telefon = salon.Telefon;
-                            s.Email = salon.Email;
-                            s.Websajt = salon.Websajt;
-                            s.PIB = salon.PIB;
-                            s.MaticniBroj = salon.MaticniBroj;
-                            s.BrojZiroRacuna = salon.BrojZiroRacuna;
-                            break;
-                        }
-                    }
-                    break;
+                listaSalon.Add(salon);
             }
+
             GenericSerializer.Serialize("salon.xml", listaSalon);
 
+
             Close();
+
+            //switch (operacija)
+            //{
+            //    case TipOperacije.DODAVANJE:
+            //        break;
+            //    case TipOperacije.IZMENA:
+            //        foreach (var s in listaSalon)
+            //        {
+            //            if (s.Id == salon.Id)
+            //            {
+            //                s.Naziv = salon.Naziv;
+            //                s.Adresa = salon.Adresa;
+            //                s.Telefon = salon.Telefon;
+            //                s.Email = salon.Email;
+            //                s.WebSajt = salon.WebSajt;
+            //                s.PIB = salon.PIB;
+            //                s.MaticniBroj = salon.MaticniBroj;
+            //                s.BrojZiroRacuna = salon.BrojZiroRacuna;
+            //                break;
+            //            }
+            //        }
+            //        break;
+            //}
+            //GenericSerializer.Serialize("salon.xml", listaSalon);
+
+            //Close();
         }
 
     }

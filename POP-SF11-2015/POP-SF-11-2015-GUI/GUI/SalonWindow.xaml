@@ -1,0 +1,95 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
+        xmlns:Model="clr-namespace:POP_SF11_2015.Model" x:Class="POP_SF_11_2015_GUI.GUI.SalonWindow"
+        mc:Ignorable="d"
+        Title="SalonWindow"
+        WindowState="Maximized"
+        WindowStyle="None">
+    <Window.Resources>
+        <Style TargetType="{x:Type Grid}">
+            <Setter Property="Width" Value="1800" />
+            <Setter Property="Height" Value="900" />
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Center" />
+            <Setter Property="FontSize" Value="72" />
+        </Style>
+        <Style TargetType="{x:Type StackPanel}">
+            <Setter Property="Canvas.Top" Value="200" />
+            <Style.Triggers>
+                <EventTrigger RoutedEvent="FrameworkElement.Loaded">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <DoubleAnimation Storyboard.TargetProperty="(Canvas.Top)" From="900"  To="200"  BeginTime="0:00:00" Duration="0:00:02" />
+                            <DoubleAnimation Storyboard.TargetProperty="(Canvas.Top)" From="200"  To="-700"    BeginTime="0:00:02" Duration="0:00:03" />
+                            <DoubleAnimation Storyboard.TargetProperty="(Canvas.Top)" From="-700" To="-1600" BeginTime="0:00:05" Duration="0:00:03" />
+                            <DoubleAnimation Storyboard.TargetProperty="(Canvas.Top)" From="-1600" To="-2500" BeginTime="0:00:08" Duration="0:00:03" />
+                            <DoubleAnimation Storyboard.TargetProperty="(Canvas.Top)" From="-2500"  To="-3400"  BeginTime="0:00:11" Duration="0:00:03" />
+                            <DoubleAnimation Storyboard.TargetProperty="(Canvas.Top)" From="-3400"  To="-4300"    BeginTime="0:00:14" Duration="0:00:03" />
+                            <DoubleAnimation Storyboard.TargetProperty="(Canvas.Top)" From="-4300"  To="-5200" BeginTime="0:00:17" Duration="0:00:03" />
+                            <DoubleAnimation Storyboard.TargetProperty="(Canvas.Top)" From="-5200"  To="-6100" BeginTime="0:00:20" Duration="0:00:03" />
+                            <DoubleAnimation Storyboard.TargetProperty="(Canvas.Top)" From="-6100"  To="-7000" BeginTime="0:00:23" Duration="0:00:03" />
+                            <DoubleAnimation Storyboard.TargetProperty="(Canvas.Top)" From="-7000"  To="-7500" BeginTime="0:00:26" Duration="0:00:03" />
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Window.Background>
+        <ImageBrush ImageSource="/POP-SF-11-2015-GUI;component/Images/mainSalon.png"/>
+    </Window.Background>
+    <Canvas Width="1800" Height="700">
+        <StackPanel>
+            <Grid>
+                <DataGrid Grid.Row="0" x:Name="dgSalon" HorizontalAlignment="Left" Height="700" Margin="60,70,0,0" VerticalAlignment="Top" Width="1800" FontFamily="Arial Black" FontWeight="Bold" FontSize="36" IsReadOnly="True" Visibility="Hidden"/>
+                <Label x:Name="lblNaziv" HorizontalAlignment="Center" Margin="-500,140,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48" Content="Naziv"/>
+                <TextBox HorizontalAlignment="Center"  Text="PLEMKEA" Margin="500,140,0,0" VerticalAlignment="Top" x:Name="tbNaziv" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+            </Grid>
+            <Grid>
+                <Label x:Name="lbAdresa" Content="Adresa" HorizontalAlignment="Center" Margin="-400,270,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="1" Grid.RowSpan="2"/>
+                <TextBox x:Name="tbAdresa" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,270,0,0" TextWrapping="Wrap" Text="Antona Cehova 28" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="2" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+            </Grid>
+            <Grid>
+
+                <Label x:Name="lbTelefon" Content="Telefon" HorizontalAlignment="Center" Margin="-400,360,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="3"/>
+                <TextBox x:Name="tbTelefon" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,360,0,0" TextWrapping="Wrap" Text="061/2737551" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="3" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+            </Grid>
+            <Grid>
+
+                <Label x:Name="lbEmail" Content="Email" HorizontalAlignment="Center" Margin="-400,450,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="4"/>
+                <TextBox x:Name="tbEmail" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,450,0,0" TextWrapping="Wrap" Text="milanplem@yahoo.com" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="4" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+            </Grid>
+            <Grid>
+
+                <Label x:Name="lbWebSajt" Content="Web Sajt" HorizontalAlignment="Center" Margin="-400,540,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="4" Grid.RowSpan="2"/>
+                <TextBox x:Name="tbWebSajt" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,540,0,0" TextWrapping="Wrap" Text="www.plemkea.com" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="5" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+            </Grid>
+            <Grid>
+                <Label x:Name="lbPIB" Content="PIB" HorizontalAlignment="Center" Margin="-400,630,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="6"/>
+                <TextBox x:Name="tbPIB" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,630,0,0" TextWrapping="Wrap" Text="865221" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="6" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+            </Grid>
+            <Grid>
+                <Label x:Name="lbMaticniBroj" Content="Maticni Broj" HorizontalAlignment="Center" Margin="-400,720,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="7"/>
+                <TextBox x:Name="tbMaticniBroj" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,720,0,0" TextWrapping="Wrap" Text="56512" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="7" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+            </Grid>
+            <Grid>
+                <Label x:Name="lbBrojZiroRacuna" Content="Broj Ziro Racuna" HorizontalAlignment="Center" Margin="-500,810,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.Row="8"/>
+                <TextBox x:Name="tbBrojZiroRacuna" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,810,0,0" TextWrapping="Wrap" Text="840-00017666-45" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="8" IsReadOnlyCaretVisible="True" IsEnabled="False"/>
+            </Grid>
+            <Grid>
+                <Button Width="150" Height="150" HorizontalAlignment="Center" Margin="00,000,0,0"  x:Name="btnIzlaz" Click="btnIzlaz_Click">
+                    <Image Source="/POP-SF-11-2015-GUI;component/Images/btnBack.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+                </Button>
+                <Button Width="150" Height="150" HorizontalAlignment="Left" Margin="400,000,0,0"  x:Name="btnIzmeniSalon" Click="btnIzmeniSalon_Click">
+                    <Image Source="/POP-SF-11-2015-GUI;component/Images/btnEdit.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+                </Button>
+            </Grid>
+        </StackPanel>
+    </Canvas>
+</Window>

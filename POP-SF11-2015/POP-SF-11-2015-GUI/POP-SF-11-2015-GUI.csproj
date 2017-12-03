@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="GUI\AkcijeEditWindow.xaml.cs">
+      <DependentUpon>AkcijeEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\AkcijeWindow.xaml.cs">
       <DependentUpon>AkcijeWindow.xaml</DependentUpon>
     </Compile>
@@ -64,11 +67,17 @@
     <Compile Include="GUI\DodatneUslugeWindow.xaml.cs">
       <DependentUpon>DodatneUslugeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\IzabranaAkcijaWindow.xaml.cs">
+      <DependentUpon>IzabranaAkcijaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\KorisniciWindow.xaml.cs">
       <DependentUpon>KorisniciWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\KorisnikEditWindow.xaml.cs">
       <DependentUpon>KorisnikEditWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\NamestajNaAkcijiWindow.xaml.cs">
+      <DependentUpon>NamestajNaAkcijiWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\NamestajWindow.xaml.cs">
       <DependentUpon>NamestajWindow.xaml</DependentUpon>
@@ -76,16 +85,29 @@
     <Compile Include="GUI\NamestajEditWindow.xaml.cs">
       <DependentUpon>NamestajEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\ProdajaEditWindow.xaml.cs">
+      <DependentUpon>ProdajaEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\ProdajaWindow.xaml.cs">
       <DependentUpon>ProdajaWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="GUI\SalonEditWindow.xaml.cs">
       <DependentUpon>SalonEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\SalonWindow.xaml.cs">
+      <DependentUpon>SalonWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TipNamestajaEditWindow.xaml.cs">
+      <DependentUpon>TipNamestajaEditWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
     <Compile Include="Utils\GenericSerializer.cs" />
+    <Page Include="GUI\AkcijeEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\AkcijeWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,11 +120,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\IzabranaAkcijaWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\KorisniciWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\KorisnikEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\NamestajNaAkcijiWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -114,11 +144,23 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="GUI\ProdajaEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="GUI\ProdajaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\SalonEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\SalonWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\TipNamestajaEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -188,7 +230,9 @@
     <Resource Include="Images\loginSalon.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\salon.xml" />
+    <Resource Include="Data\salon.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\btnLogin.png" />
@@ -239,7 +283,24 @@
     <Resource Include="Images\btnAkcijaZima.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\akcije.xml" />
+    <Resource Include="Data\akcije.xml">
+      <SubType>Designer</SubType>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Data\prodaja.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnMore.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnShop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnTip.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\btnNext.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

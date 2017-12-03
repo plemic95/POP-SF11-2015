@@ -7,6 +7,7 @@
     <TipNamestajaId>3</TipNamestajaId>
     <Cena>15000</Cena>
     <KolicinaUMagacinu>100</KolicinaUMagacinu>
+    <AkcijskaCena>11000</AkcijskaCena>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -16,6 +17,7 @@
     <TipNamestajaId>2</TipNamestajaId>
     <Cena>5000</Cena>
     <KolicinaUMagacinu>50</KolicinaUMagacinu>
+    <AkcijskaCena>0</AkcijskaCena>
     <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -25,6 +27,7 @@
     <TipNamestajaId>1</TipNamestajaId>
     <Cena>9000</Cena>
     <KolicinaUMagacinu>14</KolicinaUMagacinu>
+    <AkcijskaCena>8000</AkcijskaCena>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -34,6 +37,7 @@
     <TipNamestajaId>2</TipNamestajaId>
     <Cena>14000</Cena>
     <KolicinaUMagacinu>55</KolicinaUMagacinu>
+    <AkcijskaCena>11500</AkcijskaCena>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -43,15 +47,17 @@
     <TipNamestajaId>2</TipNamestajaId>
     <Cena>4500</Cena>
     <KolicinaUMagacinu>15</KolicinaUMagacinu>
+    <AkcijskaCena>0</AkcijskaCena>
     <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>6</Id>
-    <Naziv>Lampa</Naziv>
+    <Naziv>Lampuretina</Naziv>
     <Sifra>SOF333</Sifra>
     <TipNamestajaId>1</TipNamestajaId>
     <Cena>15000</Cena>
     <KolicinaUMagacinu>15</KolicinaUMagacinu>
+    <AkcijskaCena>11500</AkcijskaCena>
     <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -61,6 +67,7 @@
     <TipNamestajaId>0</TipNamestajaId>
     <Cena>1500</Cena>
     <KolicinaUMagacinu>550</KolicinaUMagacinu>
+    <AkcijskaCena>1000</AkcijskaCena>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -70,6 +77,7 @@
     <TipNamestajaId>3</TipNamestajaId>
     <Cena>15000</Cena>
     <KolicinaUMagacinu>15</KolicinaUMagacinu>
+    <AkcijskaCena>10000</AkcijskaCena>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -79,6 +87,7 @@
     <TipNamestajaId>0</TipNamestajaId>
     <Cena>1500</Cena>
     <KolicinaUMagacinu>10</KolicinaUMagacinu>
+    <AkcijskaCena>900</AkcijskaCena>
     <Obrisan>false</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -88,6 +97,7 @@
     <TipNamestajaId>3</TipNamestajaId>
     <Cena>5000</Cena>
     <KolicinaUMagacinu>150</KolicinaUMagacinu>
+    <AkcijskaCena>3800</AkcijskaCena>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
@@ -97,15 +107,47 @@
     <TipNamestajaId>0</TipNamestajaId>
     <Cena>1000</Cena>
     <KolicinaUMagacinu>500</KolicinaUMagacinu>
+    <AkcijskaCena>700</AkcijskaCena>
     <Obrisan>true</Obrisan>
   </Namestaj>
   <Namestaj>
     <Id>12</Id>
-    <Naziv>Telefon</Naziv>
+    <Naziv>Tele</Naziv>
     <Sifra>TEL123</Sifra>
-    <TipNamestajaId>1</TipNamestajaId>
+    <TipNamestajaId>3</TipNamestajaId>
     <Cena>25000</Cena>
-    <KolicinaUMagacinu>100</KolicinaUMagacinu>
+    <KolicinaUMagacinu>10</KolicinaUMagacinu>
+    <AkcijskaCena>17000</AkcijskaCena>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>13</Id>
+    <Naziv>Novi ad</Naziv>
+    <Sifra>NST5111</Sifra>
+    <TipNamestajaId>0</TipNamestajaId>
+    <Cena>3000</Cena>
+    <KolicinaUMagacinu>15</KolicinaUMagacinu>
+    <AkcijskaCena>0</AkcijskaCena>
+    <Obrisan>false</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>14</Id>
+    <Naziv>Ormarvvv</Naziv>
+    <Sifra>Or55</Sifra>
+    <TipNamestajaId>5</TipNamestajaId>
+    <Cena>15000</Cena>
+    <KolicinaUMagacinu>205</KolicinaUMagacinu>
+    <AkcijskaCena>0</AkcijskaCena>
+    <Obrisan>true</Obrisan>
+  </Namestaj>
+  <Namestaj>
+    <Id>15</Id>
+    <Naziv>Garnitura</Naziv>
+    <Sifra>GAR555</Sifra>
+    <TipNamestajaId>5</TipNamestajaId>
+    <Cena>35999</Cena>
+    <KolicinaUMagacinu>15</KolicinaUMagacinu>
+    <AkcijskaCena>0</AkcijskaCena>
     <Obrisan>false</Obrisan>
   </Namestaj>
 </ArrayOfNamestaj>

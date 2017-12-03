@@ -17,7 +17,8 @@ namespace POP_SF11_2015.Model
         public ObservableCollection<Korisnik> Korisnici;
         public ObservableCollection<DodatnaUsluga> DodatneUsluge;
         public ObservableCollection<Salon> Salon;
-       // public ObservableCollection<Akcija> Akcije;
+        public ObservableCollection<Prodaja> Prodaja;
+        public ObservableCollection<Akcija> Akcije;
         //private List<Salon> salon;
         //public List<Korisnik> Korisnici;
         //public List<DodatnaUsluga> DodatneUsluge;
@@ -31,7 +32,8 @@ namespace POP_SF11_2015.Model
             Korisnici = new ObservableCollection<Korisnik>(GenericSerializer.Deserialize<Korisnik>("korisnici.xml"));
             DodatneUsluge = new ObservableCollection<DodatnaUsluga>(GenericSerializer.Deserialize<DodatnaUsluga>("dodatne_usluge.xml"));
             Salon = new ObservableCollection<Salon>(GenericSerializer.Deserialize<Salon>("salon.xml"));
-           // Akcije = new ObservableCollection<Akcija>(GenericSerializer.Deserialize<Akcija>("akcije.xml"));
+            Prodaja = new ObservableCollection<Prodaja>(GenericSerializer.Deserialize<Prodaja>("prodaja.xml"));
+            Akcije = new ObservableCollection<Akcija>(GenericSerializer.Deserialize<Akcija>("akcije.xml"));
         }
 
         public Korisnik login(string username, string password)

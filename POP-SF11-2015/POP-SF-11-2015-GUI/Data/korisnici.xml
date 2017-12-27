@@ -25,7 +25,7 @@
     <KorisnickoIme>devito</KorisnickoIme>
     <Lozinka>denikralj</Lozinka>
     <TipKorisnika>Prodavac</TipKorisnika>
-    <Obrisan>true</Obrisan>
+    <Obrisan>false</Obrisan>
   </Korisnik>
   <Korisnik>
     <Id>4</Id>
@@ -34,6 +34,15 @@
     <KorisnickoIme>saki55</KorisnickoIme>
     <Lozinka>331</Lozinka>
     <TipKorisnika>Prodavac</TipKorisnika>
+    <Obrisan>true</Obrisan>
+  </Korisnik>
+  <Korisnik>
+    <Id>5</Id>
+    <Ime>Konstantin</Ime>
+    <Prezime>Lazarevic</Prezime>
+    <KorisnickoIme>maverick</KorisnickoIme>
+    <Lozinka>xxx</Lozinka>
+    <TipKorisnika>Administrator</TipKorisnika>
     <Obrisan>true</Obrisan>
   </Korisnik>
 </ArrayOfKorisnik>

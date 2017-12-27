@@ -25,4 +25,9 @@
     <Naziv>Lux</Naziv>
     <Obrisan>false</Obrisan>
   </TipNamestaja>
+  <TipNamestaja>
+    <Id>6</Id>
+    <Naziv>Test123</Naziv>
+    <Obrisan>false</Obrisan>
+  </TipNamestaja>
 </ArrayOfTipNamestaja>

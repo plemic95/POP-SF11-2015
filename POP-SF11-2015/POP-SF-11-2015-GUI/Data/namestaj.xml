@@ -150,4 +150,14 @@
     <AkcijskaCena>0</AkcijskaCena>
     <Obrisan>false</Obrisan>
   </Namestaj>
+  <Namestaj>
+    <Id>16</Id>
+    <Naziv>N123</Naziv>
+    <Sifra>test111</Sifra>
+    <TipNamestajaId>6</TipNamestajaId>
+    <Cena>1500</Cena>
+    <KolicinaUMagacinu>100</KolicinaUMagacinu>
+    <AkcijskaCena>0</AkcijskaCena>
+    <Obrisan>false</Obrisan>
+  </Namestaj>
 </ArrayOfNamestaj>

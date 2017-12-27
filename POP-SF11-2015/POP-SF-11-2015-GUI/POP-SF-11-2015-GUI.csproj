@@ -36,6 +36,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -221,7 +222,9 @@
     <Resource Include="Data\tipovi_namestaja.xml" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Data\korisnici.xml" />
+    <Resource Include="Data\korisnici.xml">
+      <SubType>Designer</SubType>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Data\dodatne_usluge.xml" />
@@ -301,6 +304,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\btnNext.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Db_scripts\crebas.sql" />
+    <Content Include="Db_scripts\seed.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

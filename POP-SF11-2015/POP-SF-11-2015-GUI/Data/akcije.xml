@@ -64,4 +64,20 @@
     <DatumZavrsetka>0001-01-01T00:00:00</DatumZavrsetka>
     <Obrisan>true</Obrisan>
   </Akcija>
+  <Akcija>
+    <Id>10</Id>
+    <ImeAkcije>Nest</ImeAkcije>
+    <Popust>50%</Popust>
+    <DatumPocetka>2017-12-15T00:00:00</DatumPocetka>
+    <DatumZavrsetka>2018-02-17T00:00:00</DatumZavrsetka>
+    <Obrisan>true</Obrisan>
+  </Akcija>
+  <Akcija>
+    <Id>11</Id>
+    <ImeAkcije>Nova Godina</ImeAkcije>
+    <Popust>10%-50%</Popust>
+    <DatumPocetka>2017-12-15T00:00:00</DatumPocetka>
+    <DatumZavrsetka>2017-12-31T00:00:00</DatumZavrsetka>
+    <Obrisan>true</Obrisan>
+  </Akcija>
 </ArrayOfAkcija>

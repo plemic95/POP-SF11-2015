@@ -13,11 +13,11 @@ namespace POP_SF11_2015.Model
         public static Projekat Instance { get; private set; } = new Projekat();
 
         public ObservableCollection<TipNamestaja> TipoviNamestaja;
-        public ObservableCollection<Namestaj> Namestaj;
+        public ObservableCollection<Namestaj> Namestaji;
         public ObservableCollection<Korisnik> Korisnici;
         public ObservableCollection<DodatnaUsluga> DodatneUsluge;
-        public ObservableCollection<Salon> Salon;
-        public ObservableCollection<Prodaja> Prodaja;
+        public ObservableCollection<Salon> SalonNamestaja;
+        public ObservableCollection<Prodaja> Prodaje;
         public ObservableCollection<Akcija> Akcije;
         //private List<Salon> salon;
         //public List<Korisnik> Korisnici;
@@ -27,16 +27,21 @@ namespace POP_SF11_2015.Model
 
         private Projekat()
         {
-            TipoviNamestaja = new ObservableCollection<TipNamestaja>(GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml"));
+            //TipoviNamestaja = new ObservableCollection<TipNamestaja>(GenericSerializer.Deserialize<TipNamestaja>("tipovi_namestaja.xml"));
 
-            //TipoviNamestaja = TipNamestaja.GetAll();
-            //Namestaji = Namestaj.GetAll();
-            Namestaj = new ObservableCollection<Namestaj>(GenericSerializer.Deserialize<Namestaj>("namestaj.xml"));
-            Korisnici = new ObservableCollection<Korisnik>(GenericSerializer.Deserialize<Korisnik>("korisnici.xml"));
-            DodatneUsluge = new ObservableCollection<DodatnaUsluga>(GenericSerializer.Deserialize<DodatnaUsluga>("dodatne_usluge.xml"));
-            Salon = new ObservableCollection<Salon>(GenericSerializer.Deserialize<Salon>("salon.xml"));
-            Prodaja = new ObservableCollection<Prodaja>(GenericSerializer.Deserialize<Prodaja>("prodaja.xml"));
-            Akcije = new ObservableCollection<Akcija>(GenericSerializer.Deserialize<Akcija>("akcije.xml"));
+            TipoviNamestaja = TipNamestaja.GetAll();
+            Namestaji = Namestaj.GetAll();
+            DodatneUsluge = DodatnaUsluga.GetAll();
+            Korisnici = Korisnik.GetAll();
+            SalonNamestaja = Salon.GetAll();
+            Prodaje = Prodaja.GetAll();
+            Akcije = Akcija.GetAll();
+            //Namestaji = new ObservableCollection<Namestaj>(GenericSerializer.Deserialize<Namestaj>("namestaj.xml"));
+        // Korisnici = new ObservableCollection<Korisnik>(GenericSerializer.Deserialize<Korisnik>("korisnici.xml"));
+           // DodatneUsluge = new ObservableCollection<DodatnaUsluga>(GenericSerializer.Deserialize<DodatnaUsluga>("dodatne_usluge.xml"));
+            //Salon = new ObservableCollection<Salon>(GenericSerializer.Deserialize<Salon>("salon.xml"));
+            //Prodaja = new ObservableCollection<Prodaja>(GenericSerializer.Deserialize<Prodaja>("prodaja.xml"));
+           // Akcije = new ObservableCollection<Akcija>(GenericSerializer.Deserialize<Akcija>("akcije.xml"));
 
         }
 

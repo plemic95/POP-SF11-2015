@@ -23,6 +23,7 @@ namespace POP_SF_11_2015_GUI.GUI
     {
 
         private ICollectionView view;
+        private CollectionViewSource cvs;
         private Korisnik ulogovaniKorisnik;
 
         public ProdajaWindow(Korisnik ulogovaniKorisnik)
@@ -30,12 +31,22 @@ namespace POP_SF_11_2015_GUI.GUI
             InitializeComponent();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
 
-            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Prodaja);
+            cvs = new CollectionViewSource();
+            cvs.Source = Projekat.Instance.Prodaje;
+
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Prodaje);
             //view.Filter = ProdajaFilter;
             //dgNamestaj.ItemsSource = Projekat.Instance.Namestaj;
-            dgProdaja.ItemsSource = view;
+            
+            dgProdaja.ItemsSource = cvs.View;
             dgProdaja.IsSynchronizedWithCurrentItem = true;
             dgProdaja.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            if (ulogovaniKorisnik.TipKorisnika == TipKorisnika.Administrator)
+            {
+                btnDetaljiProdaje.Visibility = Visibility.Hidden;
+                btnDodajProdaju.Visibility = Visibility.Hidden;
+            }
 
         }
 
@@ -62,12 +73,12 @@ namespace POP_SF_11_2015_GUI.GUI
 
             if ((string)e.Column.Header == "Id")
             {
-                e.Column.Width = 80;
+                e.Cancel = true;
             }
             if ((string)e.Column.Header == "DatumProdaje")
             {
                 e.Column.Header = "Datum Prodaje";
-                e.Column.Width = 320;
+                e.Column.Width = 640;
 
                 if (e.PropertyType == typeof(DateTime))
                 {
@@ -81,27 +92,47 @@ namespace POP_SF_11_2015_GUI.GUI
             if ((string)e.Column.Header == "BrojRacuna")
             {
                 e.Column.Header = "Broj Racuna";
-                e.Column.Width = 250;
+                e.Column.Width = 350;
             }
             if ((string)e.Column.Header == "Kupac")
             {
-                e.Column.Width = 180;
+                e.Column.Width = 400;
             }
             if ((string)e.Column.Header == "NamestajZaProdaju")
             {
-                e.Column.Header = "Prodat Namestaj";
-                e.Column.Width = 350;
+                e.Cancel = true;
             }
-            if ((string)e.Column.Header == "UkupnaCena")
+                if ((string)e.Column.Header == "UkupnaCena")
             {
                 e.Column.Header = "Ukupna Cena";
-                e.Column.Width = 290;
+                e.Column.Width = 400;
             }
             if ((string)e.Column.Header == "DodatnaUsluga")
             {
-                e.Column.Header = "Dodatna Usluga";
-                e.Column.Width = 320;
+                e.Cancel = true;
             }
+        }
+
+        private void btnDetaljiProdaje_Click(object sender, RoutedEventArgs e)
+        {
+            Prodaja selektovaniRacun = (Prodaja)dgProdaja.SelectedItem;
+            DetaljiProdaje dpw = new DetaljiProdaje(ulogovaniKorisnik, selektovaniRacun);
+            dpw.Show();
+            this.Close();
+        }
+
+        private void MyFilter(object sender, FilterEventArgs e)
+        {
+            Prodaja p = e.Item as Prodaja;
+            if (p != null)
+            {
+                e.Accepted = p.Kupac.ToLower().Contains(tbPretraga.Text.ToLower()) || p.BrojRacuna.ToLower().Contains(tbPretraga.Text.ToLower()) || p.DatumProdaje.ToString().Contains(tbPretraga.Text);
+            }
+        }
+
+        private void tbPretraga_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            cvs.Filter += new FilterEventHandler(MyFilter);
         }
     }
 }

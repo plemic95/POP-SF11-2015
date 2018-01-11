@@ -7,6 +7,7 @@
         xmlns:Model="clr-namespace:POP_SF11_2015.Model" x:Class="POP_SF_11_2015_GUI.GUI.SalonWindow"
         mc:Ignorable="d"
         Title="SalonWindow"
+        Height="1080" Width="1920"
         WindowState="Maximized"
         WindowStyle="None">
     <Window.Resources>

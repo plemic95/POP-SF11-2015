@@ -30,7 +30,7 @@ namespace POP_SF_11_2015_GUI.GUI
             //OsveziPrikaz();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
 
-            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaj);
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaji);
             view.Filter = NamestajFilter;
             //dgNamestaj.ItemsSource = Projekat.Instance.Namestaj;
             dgNamestajAkcija.ItemsSource = view;

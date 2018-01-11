@@ -37,6 +37,13 @@ namespace POP_SF_11_2015_GUI.GUI
             //dgDodatneUsluge.ItemsSource = Projekat.Instance.DodatneUsluge;
             dgDodatneUsluge.IsSynchronizedWithCurrentItem = true;
             dgDodatneUsluge.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            if (ulogovaniKorisnik.TipKorisnika == TipKorisnika.Prodavac)
+            {
+                btnDodajUslugu.Visibility = Visibility.Hidden;
+                btnIzmeniUslugu.Visibility = Visibility.Hidden;
+                btnObrisi.Visibility = Visibility.Hidden;
+            }
         }
 
         private bool UslugeFilter(object item)
@@ -89,14 +96,16 @@ namespace POP_SF_11_2015_GUI.GUI
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
             {
+
+
                 var izabranaUsluga = (DodatnaUsluga)dgDodatneUsluge.SelectedItem;
                 if (MessageBox.Show($"Da li ste sigurni da zelite da izbrisete: { izabranaUsluga.Naziv}?", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
                 {
-                    foreach (var n in Projekat.Instance.DodatneUsluge)
+                    foreach (var du in Projekat.Instance.DodatneUsluge)
                     {
-                        if (n.Id == izabranaUsluga.Id)
+                        if (du.Id == izabranaUsluga.Id)
                         {
-                            n.Obrisan = true;
+                            DodatnaUsluga.Delete(du);
                             view.Refresh();
                             break;
                         }
@@ -105,7 +114,7 @@ namespace POP_SF_11_2015_GUI.GUI
                     //OsveziPrikaz();
                 }
 
-                GenericSerializer.Serialize("dodatne_usluge.xml", Projekat.Instance.DodatneUsluge);
+              //  GenericSerializer.Serialize("dodatne_usluge.xml", Projekat.Instance.DodatneUsluge);
             }
         }
 
@@ -117,15 +126,15 @@ namespace POP_SF_11_2015_GUI.GUI
             }
             if ((string)e.Column.Header == "Id")
             {
-                e.Column.Width = 100;
+                e.Cancel = true;
             }
             if ((string)e.Column.Header == "Naziv")
             {
-                e.Column.Width = 1000;
+                e.Column.Width = 1050;
             }
             if ((string)e.Column.Header == "Cena")
             {
-                e.Column.Width = 690;
+                e.Column.Width = 740;
             }
         }
     }

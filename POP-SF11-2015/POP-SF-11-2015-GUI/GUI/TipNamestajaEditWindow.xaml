@@ -6,12 +6,10 @@
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
         mc:Ignorable="d"
         Title="TipNamestajaEditWindow"        
+        Height="1080" Width="1920"
         WindowState="Maximized"
         WindowStyle="None">
     <Grid Background="#FF6771D4">
-
-        <Label x:Name="lblId" HorizontalAlignment="Center" Margin="-500,250,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Id</Label>
-        <TextBox HorizontalAlignment="Center" Text="{Binding Path=Id}" Margin="500,250,0,0" VerticalAlignment="Top" Name="tbId" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
 
         <Label x:Name="lblNaziv" HorizontalAlignment="Center" Margin="-500,400,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Tip Namestaja</Label>
         <TextBox HorizontalAlignment="Center" Text="{Binding Path=Naziv}" Margin="500,400,0,0" VerticalAlignment="Top" Name="tbNaziv" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>

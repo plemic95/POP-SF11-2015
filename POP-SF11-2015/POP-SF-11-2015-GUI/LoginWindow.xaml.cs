@@ -104,8 +104,8 @@ namespace POP_SF_11_2015_GUI
             else
             {
                 lblErrorMessage.Visibility = Visibility.Visible;
-                lblErrorMessage.Content = "Uneli ste pogresno korisnicko ime i/ili lozinku! Preostalo je jos 3 pokusaja!";
-                lblErrorMessage.FontSize = 44;
+                lblErrorMessage.Content = "Uneli ste pogresno korisnicko ime i/ili lozinku!";
+                lblErrorMessage.FontSize = 48;
                 lblErrorMessage.Width = Double.NaN;
             }
         }

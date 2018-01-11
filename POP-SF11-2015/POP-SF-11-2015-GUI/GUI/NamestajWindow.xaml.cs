@@ -26,6 +26,7 @@ namespace POP_SF_11_2015_GUI
     {
         private Namestaj namestaj;
         private ICollectionView view;
+        private CollectionViewSource cvs;
         private Korisnik ulogovaniKorisnik;
 
         public NamestajWindow(Korisnik ulogovaniKorisnik)
@@ -34,13 +35,25 @@ namespace POP_SF_11_2015_GUI
             //OsveziPrikaz();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
 
-            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaj);
+            cvs = new CollectionViewSource();
+            cvs.Source = Projekat.Instance.Namestaji;
 
-            view.Filter = NamestajFilter;
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaji);
+
+            cvs.View.Filter = NamestajFilter;
             //dgNamestaj.ItemsSource = Projekat.Instance.Namestaj;
-            dgNamestaj.ItemsSource = view;
+            dgNamestaj.ItemsSource = cvs.View;
             dgNamestaj.IsSynchronizedWithCurrentItem = true;
             dgNamestaj.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            if (ulogovaniKorisnik.TipKorisnika == TipKorisnika.Prodavac)
+            {
+                btnDodajNamestaj.Visibility = Visibility.Hidden;
+                btnIzmeniNamestaj.Visibility = Visibility.Hidden;
+                btnObrisi.Visibility = Visibility.Hidden;
+            }
+
+
 
             //if (cbObrisan.IsChecked == true)
             //{
@@ -88,11 +101,12 @@ namespace POP_SF_11_2015_GUI
         {
             var prazanNamestaj = new Namestaj()
             {
-                
+                TipNamestajaId = 1
             };
 
             var namestajProzor = new NamestajEditWindow(prazanNamestaj, NamestajEditWindow.TipOperacije.DODAVANJE);
             namestajProzor.ShowDialog();
+           
 
             //OsveziPrikaz();
         }
@@ -106,7 +120,7 @@ namespace POP_SF_11_2015_GUI
 
         private void btnIzmeniNamestaj_Click(object sender, RoutedEventArgs e)
         {
-            Namestaj izabraniNamestaj = view.CurrentItem as Namestaj;
+            Namestaj izabraniNamestaj = (Namestaj)dgNamestaj.SelectedItem;
 
             if (izabraniNamestaj != null)
             {
@@ -114,8 +128,8 @@ namespace POP_SF_11_2015_GUI
                 NamestajEditWindow nw = new NamestajEditWindow(izabraniNamestaj, NamestajEditWindow.TipOperacije.IZMENA);
                 if (nw.ShowDialog() != true)
                 {
-                    int index = Projekat.Instance.Namestaj.IndexOf(izabraniNamestaj);
-                    Projekat.Instance.Namestaj[index] = old;
+                    int index = Projekat.Instance.Namestaji.IndexOf(izabraniNamestaj);
+                    Projekat.Instance.Namestaji[index] = old;
                 }
             }
             //var izabraniNamestaj = (Namestaj)dgNamestaj.SelectedItem;
@@ -128,17 +142,18 @@ namespace POP_SF_11_2015_GUI
 
         private void btnObrisi_Click(object sender, RoutedEventArgs e)
         {
+
             var izabraniNamestaj = (Namestaj)dgNamestaj.SelectedItem;
 
             //Namestaj izabraniNamestaj = (Namestaj)lbNamestaj.SelectedItem;
             if (MessageBox.Show($"Da li ste sigurni da zelite da izbrisete: { izabraniNamestaj.Naziv}?", "Brisanje", MessageBoxButton.YesNo) == MessageBoxResult.Yes)
             {
-                foreach (var n in Projekat.Instance.Namestaj)
+                foreach (var n in Projekat.Instance.Namestaji)
                 {
                     if (n.Id == izabraniNamestaj.Id)
                     {
-                        n.Obrisan = true;
-                        view.Refresh();
+                        Namestaj.Delete(n);
+                        cvs.View.Refresh();
                         break;
                     }
                 }
@@ -146,7 +161,7 @@ namespace POP_SF_11_2015_GUI
                 //OsveziPrikaz();
             }
 
-            GenericSerializer.Serialize("namestaj.xml", Projekat.Instance.Namestaj);
+           // GenericSerializer.Serialize("namestaj.xml", Projekat.Instance.Namestaji);
         }
 
         private void dgNamestaj_AutoGeneratingColumn_1(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -160,13 +175,17 @@ namespace POP_SF_11_2015_GUI
             {
                 e.Cancel = true;
             }
-            if ((string)e.Column.Header == "AkcijskaCena")
+            if ((string)e.Column.Header == "IDAkcije")
             {
                 e.Cancel = true;
             }
             if ((string)e.Column.Header == "Id")
             {
-                e.Column.Width = 100;
+                e.Cancel = true;
+            }
+            if ((string)e.Column.Header == "Akcija")
+            {
+                e.Cancel = true;
             }
             if ((string)e.Column.Header == "Naziv")
             {
@@ -174,11 +193,11 @@ namespace POP_SF_11_2015_GUI
             }
             if ((string)e.Column.Header == "Cena")
             {
-                e.Column.Width = 250;
+                e.Column.Width = 350;
             }
             if ((string)e.Column.Header == "Sifra")
             {
-                e.Column.Width = 300;
+                e.Column.Width = 200;
             }
             if ((string)e.Column.Header == "KolicinaUMagacinu")
             {
@@ -188,19 +207,39 @@ namespace POP_SF_11_2015_GUI
             if ((string)e.Column.Header == "TipNamestaja")
             {
                 e.Column.Header = "Tip Namestaja";
-                e.Column.Width = 350;
+                e.Column.Width = 450;
             }
         }
 
         private void btnTipNamestaja_Click(object sender, RoutedEventArgs e)
         {
-            var prazanTipNamestaja = new TipNamestaja()
-            {
-                Naziv = ""
-            };
 
-            var tipNamestajaProzor = new TipNamestajaEditWindow(prazanTipNamestaja, TipNamestajaEditWindow.TipOperacije.DODAVANJE);
-            tipNamestajaProzor.ShowDialog();
+            TipNamestajaWindow tnw = new TipNamestajaWindow(this.ulogovaniKorisnik);
+            tnw.Show();
+            this.Close();
+            //var prazanTipNamestaja = new TipNamestaja()
+            //{
+            //    Naziv = ""
+            //};
+
+            //var tipNamestajaProzor = new TipNamestajaEditWindow(prazanTipNamestaja, TipNamestajaEditWindow.TipOperacije.DODAVANJE);
+            //tipNamestajaProzor.ShowDialog();
         }
+
+
+        private void MyFilter(object sender, FilterEventArgs e)
+        {
+            Namestaj n = e.Item as Namestaj;
+            if (n != null)
+            {
+                e.Accepted = n.Naziv.ToLower().Contains(tbPretraga.Text.ToLower()) || n.Sifra.ToLower().Contains(tbPretraga.Text.ToLower()) || n.TipNamestaja.Naziv.ToLower().Contains(tbPretraga.Text.ToLower());
+            }
+        }
+
+        private void tbPretraga_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            cvs.Filter += new FilterEventHandler(MyFilter);
+        }
+
     }
 }

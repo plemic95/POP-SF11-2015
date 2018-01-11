@@ -7,12 +7,13 @@
         mc:Ignorable="d"
         Title="MainWindow"
         WindowState="Maximized"
-        WindowStyle="None" Height="1712.846" Width="2409.288">
+        WindowStyle="None" Height="1080" Width="1920">
+    <!-- <Viewbox StretchDirection="Both" Stretch="Fill"> -->
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Images/mainSalon.png"/>
         </Grid.Background>
-       
+
         <Button x:Name="btnNamestaj" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="250" Margin="100,200,0,0" Click="btnNamestaj_Click" FontSize="36">
             <Button.Content>
                 <Image Source="Images/btnNamestaj.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
@@ -49,4 +50,5 @@
             </Button.Content>
         </Button>
     </Grid>
+    <!-- </Viewbox> -->
 </Window>

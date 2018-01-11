@@ -40,9 +40,7 @@ namespace POP_SF_11_2015_GUI.GUI
             this.tipNamestaja = tipNamestaja;
             this.operacija = operacija;
 
-            tipNamestaja.Id = listaTipovaNamestaja.Count + 1;
-            tbId.DataContext = tipNamestaja;
-            tbId.IsEnabled = false;
+            //tipNamestaja.Id = listaTipovaNamestaja.Count + 1;
             tbNaziv.DataContext = tipNamestaja;
         }
  
@@ -55,14 +53,13 @@ namespace POP_SF_11_2015_GUI.GUI
             switch (operacija)
             {
                 case TipOperacije.DODAVANJE:
-                    tipNamestaja.Id = listaTipovaNamestaja.Count + 1;
-                    listaTipovaNamestaja.Add(tipNamestaja);
+                    TipNamestaja.Create(tipNamestaja);
                     break;
                 case TipOperacije.IZMENA:
                     break;
 
             }
-            GenericSerializer.Serialize("tipovi_namestaja.xml", listaTipovaNamestaja);
+         //   GenericSerializer.Serialize("tipovi_namestaja.xml", listaTipovaNamestaja);
 
             Close();
         }

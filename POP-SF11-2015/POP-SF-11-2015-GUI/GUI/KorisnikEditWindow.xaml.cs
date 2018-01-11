@@ -59,45 +59,124 @@ namespace POP_SF_11_2015_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            var listaKorisnika = Projekat.Instance.Korisnici;
 
-            this.DialogResult = true;
-            if (operacija == TipOperacije.DODAVANJE)
+
+            if (korisnik.Ime != null && korisnik.Prezime != null && korisnik.KorisnickoIme != null && korisnik.Lozinka != null && korisnik.TipKorisnika != 0)
             {
-                korisnik.Id = listaKorisnika.Count + 1;
-                listaKorisnika.Add(korisnik);
+                var listaKorisnika = Projekat.Instance.Korisnici;
+
+
+                this.DialogResult = true;
+
+                switch (operacija)
+                {
+                    case TipOperacije.DODAVANJE:
+                        //korisnik.ID = listaKorisnika.Count + 1;
+                        //listaKorisnika.Add(korisnik);
+
+
+                        Korisnik.Create(korisnik);
+
+
+
+                        break;
+
+
+
+                    case TipOperacije.IZMENA:
+
+                        /*
+                        //ovaj foreach doubt?
+                        foreach (var k in listaKorisnika)
+                        {
+                            if (k.ID == korisnik.ID)
+                            {
+
+                                k.Ime = korisnik.Ime;
+                                k.Prezime = korisnik.Prezime;
+                                k.KorIme = korisnik.KorIme;
+                                k.Lozinka = korisnik.Lozinka;
+                                k.TipKorisnika = korisnik.TipKorisnika;
+                                KorisnikDAL.Update(k);
+                                break;
+                            }
+                        }
+                        */
+
+                        Korisnik.Update(korisnik);
+
+                        break;
+
+                }
+
+
+                this.Close();
+            }
+            else
+            {
+
+                if (korisnik.Ime == null)
+                {
+                    MessageBox.Show("Niste uneli ime!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                if (korisnik.Prezime == null)
+                {
+                    MessageBox.Show("Niste uneli prezime!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                if (korisnik.KorisnickoIme == null)
+                {
+                    MessageBox.Show("Niste uneli korisnicko ime!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                if (korisnik.Lozinka == null)
+                {
+                    MessageBox.Show("Niste uneli lozinku!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                if (korisnik.TipKorisnika == 0)
+                {
+                    MessageBox.Show("Niste uneli tip korisnika!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
-            GenericSerializer.Serialize("korisnici.xml", listaKorisnika);
-
-
-            Close();
-
-            //switch (operacija)
-            //{
-            //    case TipOperacije.DODAVANJE:
-            //        korisnik.Id = listaKorisnika.Count + 1;
-            //        listaKorisnika.Add(korisnik);
-            //        break;
-            //    case TipOperacije.IZMENA:
-            //        foreach (var k in listaKorisnika)
-            //        {
-            //            if (k.Id == korisnik.Id)
-            //            {
-            //                k.Ime = korisnik.Ime;
-            //                k.Prezime = korisnik.Prezime;
-            //                k.KorisnickoIme = korisnik.KorisnickoIme;
-            //                k.Lozinka = korisnik.Lozinka;
-            //                k.TipKorisnika = korisnik.TipKorisnika;
-            //                break;
-            //            }
-            //        }
-            //        break;
-
-            //}
-            //GenericSerializer.Serialize("korisnici.xml", listaKorisnika);
-
-            //Close();
         }
+        //var listaKorisnika = Projekat.Instance.Korisnici;
+
+        //this.DialogResult = true;
+        //if (operacija == TipOperacije.DODAVANJE)
+        //{
+        //    korisnik.Id = listaKorisnika.Count + 1;
+        //    listaKorisnika.Add(korisnik);
+        //}
+
+        //GenericSerializer.Serialize("korisnici.xml", listaKorisnika);
+
+
+        //Close();
+
+        //switch (operacija)
+        //{
+        //    case TipOperacije.DODAVANJE:
+        //        korisnik.Id = listaKorisnika.Count + 1;
+        //        listaKorisnika.Add(korisnik);
+        //        break;
+        //    case TipOperacije.IZMENA:
+        //        foreach (var k in listaKorisnika)
+        //        {
+        //            if (k.Id == korisnik.Id)
+        //            {
+        //                k.Ime = korisnik.Ime;
+        //                k.Prezime = korisnik.Prezime;
+        //                k.KorisnickoIme = korisnik.KorisnickoIme;
+        //                k.Lozinka = korisnik.Lozinka;
+        //                k.TipKorisnika = korisnik.TipKorisnika;
+        //                break;
+        //            }
+        //        }
+        //        break;
+
+        //}
+        //GenericSerializer.Serialize("korisnici.xml", listaKorisnika);
+
+        //Close();
     }
-}
+    }
+

@@ -31,6 +31,11 @@ namespace POP_SF_11_2015_GUI
             InitializeComponent();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
 
+            if (ulogovaniKorisnik.TipKorisnika == TipKorisnika.Prodavac)
+            {
+                btnKorisnici.IsEnabled = false;
+            }
+
 
             //  if (ulogovaniKorisnik.TipKorisnika.Administrator)
             //  {

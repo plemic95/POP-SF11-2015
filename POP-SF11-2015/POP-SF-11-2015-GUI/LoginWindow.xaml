@@ -6,8 +6,11 @@
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI"
         mc:Ignorable="d"
         Title="LoginWindow"
+        Height="1080" Width="1920"
+
         WindowState="Maximized"
         WindowStyle="None">
+    <!-- <Viewbox StretchDirection="Both" Stretch="Fill"> -->
     <Grid>
         <Grid.Background>
             <ImageBrush ImageSource="Images/loginSalon.png"/>
@@ -41,4 +44,5 @@
         </Button>
         <Label x:Name="lblErrorMessage" Foreground="#FF641212" Content="" Visibility="Hidden" HorizontalAlignment="Center" VerticalAlignment="Bottom" FontWeight="Bold" FontFamily="Arial Black"/>
     </Grid>
+   <!-- </Viewbox> -->
 </Window>

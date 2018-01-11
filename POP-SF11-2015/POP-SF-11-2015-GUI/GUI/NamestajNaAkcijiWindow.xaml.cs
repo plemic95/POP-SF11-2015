@@ -28,7 +28,7 @@ namespace POP_SF_11_2015_GUI.GUI
         {
             InitializeComponent();
 
-            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaj);
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Namestaji);
             view.Filter = NamestajAkcijaFilter;
             //dgNamestaj.ItemsSource = Projekat.Instance.Namestaj;
             dgNamestajNaAkciji.ItemsSource = view;
@@ -38,7 +38,7 @@ namespace POP_SF_11_2015_GUI.GUI
         private bool NamestajAkcijaFilter(object item)
         {
             Namestaj nam = item as Namestaj;
-            return !nam.Obrisan && nam.AkcijskaCena == 0;
+            return !nam.Obrisan;
             
         }
 

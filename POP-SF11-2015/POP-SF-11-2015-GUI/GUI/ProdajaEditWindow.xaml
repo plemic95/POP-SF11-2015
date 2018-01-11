@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
         mc:Ignorable="d"
         Title="ProdajaEditWindow"
+        Height="1080" Width="1920"
         WindowState="Maximized"
         WindowStyle="None">
     <Grid Background="#FF6771D4">
@@ -13,23 +14,24 @@
         <Label x:Name="lblBrojRacuna" HorizontalAlignment="Center" Margin="-500,140,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Broj Racuna</Label>
         <TextBox HorizontalAlignment="Center" Text="{Binding Path=BrojRacuna}" Margin="500,140,0,0" VerticalAlignment="Top" Name="tbBrojRacuna" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
 
-        <Label x:Name="lblDatumProdaje" HorizontalAlignment="Center" Margin="-500,280,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Datum Prodaje</Label>
-        <Calendar x:Name="clnDatumProdaje" SelectedDate="{Binding Path=DatumProdaje}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="500,280,0,0" FontFamily="Arial Black" FontWeight="Bold" FontSize="40">
-            <Calendar.LayoutTransform>
-                <ScaleTransform ScaleX="2.2" ScaleY="1.2" />
-            </Calendar.LayoutTransform>
-        </Calendar>
-        
-        <Label x:Name="lblNamestaj" HorizontalAlignment="Center" Margin="-500,480,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Namestaj</Label>
-        <ListBox x:Name="lbNamestajBox" SelectedItem="{Binding Path=NamestajZaProdaju}" HorizontalAlignment="Center" Height="55" Margin="500,480,0,0" FontFamily="Arial Black" FontWeight="Bold" FontSize="48" Width="400" VerticalAlignment="Top">
-        </ListBox>
+        <Label x:Name="lblNamestaj" HorizontalAlignment="Center" Margin="-500,280,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Namestaj</Label>
+        <DataGrid x:Name="dgNamestaj" HorizontalAlignment="Center" Height="300" Margin="500,280,0,0" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontWeight="Bold" FontSize="14" IsReadOnly="True" AutoGeneratingColumn="dgNamestaj_AutoGeneratingColumn_1" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False"/>
 
         <Label x:Name="lblUsluga" HorizontalAlignment="Center" Margin="-500,620,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Dodatna Usluga</Label>
-        <ListBox x:Name="lbUslugaBox" HorizontalAlignment="Center" Height="55" Margin="500,620,0,0" FontFamily="Arial Black" FontWeight="Bold" FontSize="48" Width="400" VerticalAlignment="Top"/>
+        <DataGrid x:Name="dgDodatneUsluge" HorizontalAlignment="Center" Height="120" Margin="500,620,0,0" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontWeight="Bold" FontSize="14" IsReadOnly="True" AutoGeneratingColumn="dgDodatneUsluge_AutoGeneratingColumn" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False"/>
 
         <Label x:Name="lblKupac" HorizontalAlignment="Center" Margin="-500,760,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Kupac</Label>
         <TextBox HorizontalAlignment="Center" Text="{Binding Path=Kupac}" Margin="500,760,0,0" VerticalAlignment="Top" Name="tbKupac" FontFamily="Arial Black" FontSize="40" Width="400" FontWeight="Bold"/>
 
+
+        <Label x:Name="lblKolicina" HorizontalAlignment="Center" Margin="1400,440,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontWeight="Bold" FontSize="48">Kolicina</Label>
+        <TextBox HorizontalAlignment="Center" Text="{Binding Path=Kolicina}" Margin="1400,520,0,0" VerticalAlignment="Top" Name="tbKolicina" FontFamily="Arial Black" FontSize="40" Width="200" FontWeight="Bold"/>
+
+        <Button x:Name="btnDodajStavku" Click="btnDodajStavku_Click" HorizontalAlignment="Left" Margin="1761,520,0,0" VerticalAlignment="Top" Width="62" Height="52">
+            <Button.Content>
+                <Image Source="/POP-SF-11-2015-GUI;component/Images/btnAdd.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
+            </Button.Content>
+        </Button>
         <Button HorizontalAlignment="Center" x:Name="btnSacuvaj" Click="btnSacuvaj_Click" Margin="0,800,0,0" Width="200" Height="200" >
             <Button.Content>
                 <Image Source="/POP-SF-11-2015-GUI;component/Images/btnSave.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>

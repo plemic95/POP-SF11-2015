@@ -43,8 +43,6 @@ namespace POP_SF_11_2015_GUI.GUI
             this.operacija = operacija;
      //       this.iZMENA = iZMENA;
 
-            tbId.IsEnabled = false;
-            tbId.DataContext = salon;
             tbNaziv.DataContext = salon;
             tbAdresa.DataContext = salon;
             tbTelefon.DataContext = salon;
@@ -79,15 +77,17 @@ namespace POP_SF_11_2015_GUI.GUI
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-            var listaSalon = Projekat.Instance.Salon;
+           // var listaSalon = Projekat.Instance.SalonNamestaja;
 
-            this.DialogResult = true;
-            if (operacija == TipOperacije.DODAVANJE)
-            {
-                listaSalon.Add(salon);
-            }
+            Salon.Update(salon);
 
-            GenericSerializer.Serialize("salon.xml", listaSalon);
+            //this.DialogResult = true;
+            //if (operacija == TipOperacije.DODAVANJE)
+            //{
+            //    listaSalon.Add(salon);
+            //}
+
+            //GenericSerializer.Serialize("salon.xml", listaSalon);
 
 
             Close();

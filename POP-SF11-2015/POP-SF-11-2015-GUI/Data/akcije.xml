@@ -2,82 +2,18 @@
 <ArrayOfAkcija xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Akcija>
     <Id>1</Id>
-    <ImeAkcije>Novogodisnja Akcija</ImeAkcije>
-    <Popust>10%-50%</Popust>
-    <DatumPocetka>2017-12-15T00:00:00</DatumPocetka>
+    <ImeAkcije>Novogodisnja</ImeAkcije>
+    <Popust>10</Popust>
+    <DatumPocetka>2017-01-12T00:00:00</DatumPocetka>
     <DatumZavrsetka>2018-01-20T00:00:00</DatumZavrsetka>
     <Obrisan>false</Obrisan>
   </Akcija>
   <Akcija>
     <Id>2</Id>
-    <ImeAkcije>Prolecna Akcija</ImeAkcije>
-    <Popust>20%-65%</Popust>
-    <DatumPocetka>2017-03-20T00:00:00</DatumPocetka>
-    <DatumZavrsetka>2017-04-20T00:00:00</DatumZavrsetka>
-    <Obrisan>true</Obrisan>
-  </Akcija>
-  <Akcija>
-    <Id>3</Id>
-    <ImeAkcije>Neka Akcija</ImeAkcije>
-    <Popust>15%-25%</Popust>
-    <DatumPocetka>2017-01-01T00:00:00</DatumPocetka>
-    <DatumZavrsetka>2018-05-01T00:00:00</DatumZavrsetka>
+    <ImeAkcije>Neka</ImeAkcije>
+    <Popust>25</Popust>
+    <DatumPocetka>2017-04-19T00:00:00</DatumPocetka>
+    <DatumZavrsetka>2018-05-11T00:00:00</DatumZavrsetka>
     <Obrisan>false</Obrisan>
-  </Akcija>
-  <Akcija>
-    <Id>4</Id>
-    <ImeAkcije>Ekstra Akcija</ImeAkcije>
-    <Popust>75%</Popust>
-    <DatumPocetka>2018-01-26T00:00:00</DatumPocetka>
-    <DatumZavrsetka>2018-02-25T00:00:00</DatumZavrsetka>
-    <Obrisan>true</Obrisan>
-  </Akcija>
-  <Akcija>
-    <Id>5</Id>
-    <DatumPocetka>0001-01-01T00:00:00</DatumPocetka>
-    <DatumZavrsetka>0001-01-01T00:00:00</DatumZavrsetka>
-    <Obrisan>true</Obrisan>
-  </Akcija>
-  <Akcija>
-    <Id>6</Id>
-    <ImeAkcije>Akcijaffff</ImeAkcije>
-    <Popust>50%</Popust>
-    <DatumPocetka>2017-12-10T00:00:00</DatumPocetka>
-    <DatumZavrsetka>2017-12-31T00:00:00</DatumZavrsetka>
-    <Obrisan>false</Obrisan>
-  </Akcija>
-  <Akcija>
-    <Id>7</Id>
-    <DatumPocetka>0001-01-01T00:00:00</DatumPocetka>
-    <DatumZavrsetka>0001-01-01T00:00:00</DatumZavrsetka>
-    <Obrisan>true</Obrisan>
-  </Akcija>
-  <Akcija>
-    <Id>8</Id>
-    <DatumPocetka>0001-01-01T00:00:00</DatumPocetka>
-    <DatumZavrsetka>0001-01-01T00:00:00</DatumZavrsetka>
-    <Obrisan>true</Obrisan>
-  </Akcija>
-  <Akcija>
-    <Id>9</Id>
-    <DatumPocetka>0001-01-01T00:00:00</DatumPocetka>
-    <DatumZavrsetka>0001-01-01T00:00:00</DatumZavrsetka>
-    <Obrisan>true</Obrisan>
-  </Akcija>
-  <Akcija>
-    <Id>10</Id>
-    <ImeAkcije>Nest</ImeAkcije>
-    <Popust>50%</Popust>
-    <DatumPocetka>2017-12-15T00:00:00</DatumPocetka>
-    <DatumZavrsetka>2018-02-17T00:00:00</DatumZavrsetka>
-    <Obrisan>true</Obrisan>
-  </Akcija>
-  <Akcija>
-    <Id>11</Id>
-    <ImeAkcije>Nova Godina</ImeAkcije>
-    <Popust>10%-50%</Popust>
-    <DatumPocetka>2017-12-15T00:00:00</DatumPocetka>
-    <DatumZavrsetka>2017-12-31T00:00:00</DatumZavrsetka>
-    <Obrisan>true</Obrisan>
   </Akcija>
 </ArrayOfAkcija>

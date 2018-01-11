@@ -24,17 +24,28 @@ namespace POP_SF_11_2015_GUI.GUI
     {
         private ICollectionView view;
         private Korisnik ulogovaniKorisnik;
+        private CollectionViewSource cvs;
 
         public KorisniciWindow(Korisnik ulogovaniKorisnik)
         {
             InitializeComponent();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
+            cvs = new CollectionViewSource();
+            cvs.Source = Projekat.Instance.Korisnici;
 
             view = CollectionViewSource.GetDefaultView(Projekat.Instance.Korisnici);
-            view.Filter = KorisniciFilter;
-            dgKorisnici.ItemsSource = view;
+            cvs.View.Filter = KorisniciFilter;
+            dgKorisnici.ItemsSource = cvs.View;
             dgKorisnici.IsSynchronizedWithCurrentItem = true;
             dgKorisnici.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            if (ulogovaniKorisnik.TipKorisnika == TipKorisnika.Prodavac)
+            {
+                btnDodajKorisnika.Visibility = Visibility.Hidden;
+                btnIzmeniKorisnika.Visibility = Visibility.Hidden;
+                btnObrisi.Visibility = Visibility.Hidden;
+            }
+
         }
 
         private bool KorisniciFilter(object item)
@@ -48,10 +59,7 @@ namespace POP_SF_11_2015_GUI.GUI
         {
             var prazanKorisnik = new Korisnik()
             {
-                Ime = "",
-                Prezime = "",
-                KorisnickoIme = "",
-                Lozinka = ""
+                TipKorisnika = TipKorisnika.Administrator ,
             };
 
             var korisnikProzor = new KorisnikEditWindow(prazanKorisnik, KorisnikEditWindow.TipOperacije.DODAVANJE);
@@ -61,7 +69,7 @@ namespace POP_SF_11_2015_GUI.GUI
         private void btnIzmeniKorisnika_Click(object sender, RoutedEventArgs e)
         {
 
-            Korisnik izabraniKorisnik = view.CurrentItem as Korisnik;
+            Korisnik izabraniKorisnik = (Korisnik)dgKorisnici.SelectedItem;
 
             if (izabraniKorisnik != null)
             {
@@ -97,8 +105,8 @@ namespace POP_SF_11_2015_GUI.GUI
                     {
                         if (k.Id == izabraniKorisnik.Id)
                         {
-                            k.Obrisan = true;
-                            view.Refresh();
+                            Korisnik.Delete(k);
+                            cvs.View.Refresh();
                             break;
                         }
                     }
@@ -106,7 +114,7 @@ namespace POP_SF_11_2015_GUI.GUI
                     //OsveziPrikaz();
                 }
 
-                GenericSerializer.Serialize("korisnici.xml", Projekat.Instance.Korisnici);
+              //  GenericSerializer.Serialize("korisnici.xml", Projekat.Instance.Korisnici);
             }
         }
 
@@ -118,30 +126,44 @@ namespace POP_SF_11_2015_GUI.GUI
             }
             if ((string)e.Column.Header == "Id")
             {
-                e.Column.Width = 100;
+                e.Cancel = true;
             }
             if ((string)e.Column.Header == "Ime")
             {
-                e.Column.Width = 280;
+                e.Column.Width = 300;
             }
             if ((string)e.Column.Header == "Prezime")
             {
-                e.Column.Width = 280;
+                e.Column.Width = 300;
             }
             if ((string)e.Column.Header == "KorisnickoIme")
             {
                 e.Column.Header = "Korisnicko Ime";
-                e.Column.Width = 420;
+                e.Column.Width = 440;
             }
             if ((string)e.Column.Header == "Lozinka")
             {
-                e.Column.Width = 420;
+                e.Column.Width = 440;
             }
             if ((string)e.Column.Header == "TipKorisnika")
             {
                 e.Column.Header = "Tip Korisnika";
-                e.Column.Width = 290;
+                e.Column.Width = 310;
             }
+        }
+
+        private void MyFilter(object sender, FilterEventArgs e)
+        {
+            Korisnik k = e.Item as Korisnik;
+            if (k != null)
+            {
+                e.Accepted = k.Ime.ToLower().Contains(tbPretraga.Text.ToLower()) || k.Prezime.ToLower().Contains(tbPretraga.Text.ToLower()) || k.KorisnickoIme.ToLower().Contains(tbPretraga.Text.ToLower());
+            }
+        }
+
+        private void tbPretraga_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            cvs.Filter += new FilterEventHandler(MyFilter);
         }
     }
 }

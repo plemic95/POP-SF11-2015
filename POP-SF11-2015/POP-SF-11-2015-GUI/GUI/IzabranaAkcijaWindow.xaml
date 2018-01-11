@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
         mc:Ignorable="d"
         Title="IzabranaAkcijaWindow"
+        Height="1080" Width="1920"
         WindowState="Maximized"
         WindowStyle="None">
     <Grid Background="#FF6771D4">

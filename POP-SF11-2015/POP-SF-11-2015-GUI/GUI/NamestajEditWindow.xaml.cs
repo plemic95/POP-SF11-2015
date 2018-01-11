@@ -40,6 +40,8 @@ namespace POP_SF_11_2015_GUI.GUI
 
             cbTipNamestaja.ItemsSource = Projekat.Instance.TipoviNamestaja;
 
+
+
             tbNaziv.DataContext = namestaj;
             cbTipNamestaja.DataContext = namestaj;
             tbSifra.DataContext = namestaj;
@@ -56,62 +58,146 @@ namespace POP_SF_11_2015_GUI.GUI
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
 
-            var listaNamestaja = Projekat.Instance.Namestaj;
-
-            this.DialogResult = true;
-            if (operacija == TipOperacije.DODAVANJE)
+            if (namestaj.Cena > 0 && namestaj.Naziv != null && namestaj.Sifra != null && namestaj.KolicinaUMagacinu > 0 && namestaj.KolicinaUMagacinu < 9999999 && namestaj.Cena < 9999999)
             {
-                namestaj.Id = listaNamestaja.Count + 1;
-                listaNamestaja.Add(namestaj);
+                var listaNamestaja = Projekat.Instance.Namestaji;
+
+
+                this.DialogResult = true;
+
+                switch (operacija)
+                {
+                    case TipOperacije.DODAVANJE:
+                        //namestaj.ID = listaNamestaja.Count + 1;
+                        //listaNamestaja.Add(namestaj);
+
+
+
+
+
+                        Namestaj.Create(namestaj);
+
+
+
+                        break;
+
+
+
+                    case TipOperacije.IZMENA:
+
+                        
+                        //foreach (var n in listaNamestaja)
+                        //{
+                        //    if (n.Id == namestaj.Id)
+                        //    {
+
+                        //        n.TipNamestajaId = namestaj.TipNamestajaId;
+                        //        n.Naziv = namestaj.Naziv;
+                                
+                        //        break;
+                        //    }
+                        //}
+                        
+                        Namestaj.Update(namestaj);
+
+                        break;
+
+                }
+
+                //nakon svih izmena serijalizuj, znaci prvo radimo sa temp listom, menjamo je kolko treba i onda se pregazi glavna kolekcija seterom iz Projekat
+                //GenericSerializer.Serialize("namestaj.xml", listaNamestaja);
+                this.Close();
+            }
+            else
+            {
+                if (namestaj.KolicinaUMagacinu <= 0)
+                {
+                    //razdvojiti sad dva problema, da li je bas 0 ili je dao nulu validated on exeption
+                    //meh
+                    MessageBox.Show("Uneli ste ili 0 ili karaktere!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+                if (namestaj.Cena <= 0)
+                {
+                    MessageBox.Show("Morate uneti cenu", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+
+                }
+                if (namestaj.Naziv == null)
+                {
+                    MessageBox.Show("Niste uneli naziv!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                if (namestaj.Sifra == null)
+                {
+                    MessageBox.Show("Niste uneli sifru!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                if (namestaj.Cena >= 9999999)
+                {
+                    MessageBox.Show("Uneli ste prevelik broj!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                if (namestaj.KolicinaUMagacinu >= 99999999)
+                {
+                    MessageBox.Show("Uneli ste prevelik broj!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
 
-            GenericSerializer.Serialize("namestaj.xml", listaNamestaja);
-
-
-            Close();
-            //   this.Close();
-
-            //   var listaNamestaja = Projekat.Instance.Namestaj;
-
-            //  switch (operacija)
-            //  {
-            //      case TipOperacije.DODAVANJE:
-            //          namestaj.Id = listaNamestaja.Count + 1;
-            //          listaNamestaja.Add(namestaj);
-            //          break;
-            //      case TipOperacije.IZMENA:
-            //          foreach (var n in listaNamestaja)
-            //          {
-            //              if (n.Id == namestaj.Id)
-            //              {
-            //                  n.TipNamestajaId = namestaj.TipNamestajaId;
-            //                  n.Naziv = namestaj.Naziv;
-            //                  n.Sifra = namestaj.Sifra;
-            //                  n.Cena = namestaj.Cena;
-            //                  n.KolicinaUMagacinu = namestaj.KolicinaUMagacinu;
-            //                  listaNamestaja.Add(namestaj);
-            //                  break;
-            //              }
-            //          }
-            //          break;
-            //var namestajZaIzmenu = listaNamestaja.SingleOrDefault(x => x.Id == namestaj.Id);
-            // var namestajZaIzmenu = Namestaj.GetById(namestaj.Id);
-            //namestajZaIzmenu.TipNamestajaId = tipNamestajaId;
-            //namestajZaIzmenu.Naziv = tbNaziv.Text;
-            ////namestajZaIzmenu.TipNamestajaId = ((TipNamestaja)cbTipNamestaja.SelectedItem).Id;
-            //break;
-            // }
-            //string naziv = tbNaziv.Text;
-
-            //    namestaj = new Namestaj()
-            //    {
-            //        Id = listaNamestaja.Count + 1,
-            //        Naziv = naziv
-            //    };
-
-            //    listaNamestaja.Add(namestaj);
-            //Projekat.Instance.Namestaj = listaNamestaja;
-
         }
+        //var listaNamestaja = Projekat.Instance.Namestaji;
+
+        //this.DialogResult = true;
+        //if (operacija == TipOperacije.DODAVANJE)
+        //{
+        //    namestaj.Id = listaNamestaja.Count + 1;
+        //    listaNamestaja.Add(namestaj);
+        //}
+
+        //GenericSerializer.Serialize("namestaj.xml", listaNamestaja);
+
+
+        //Close();
+        //   this.Close();
+
+        //   var listaNamestaja = Projekat.Instance.Namestaj;
+
+        //  switch (operacija)
+        //  {
+        //      case TipOperacije.DODAVANJE:
+        //          namestaj.Id = listaNamestaja.Count + 1;
+        //          listaNamestaja.Add(namestaj);
+        //          break;
+        //      case TipOperacije.IZMENA:
+        //          foreach (var n in listaNamestaja)
+        //          {
+        //              if (n.Id == namestaj.Id)
+        //              {
+        //                  n.TipNamestajaId = namestaj.TipNamestajaId;
+        //                  n.Naziv = namestaj.Naziv;
+        //                  n.Sifra = namestaj.Sifra;
+        //                  n.Cena = namestaj.Cena;
+        //                  n.KolicinaUMagacinu = namestaj.KolicinaUMagacinu;
+        //                  listaNamestaja.Add(namestaj);
+        //                  break;
+        //              }
+        //          }
+        //          break;
+        //var namestajZaIzmenu = listaNamestaja.SingleOrDefault(x => x.Id == namestaj.Id);
+        // var namestajZaIzmenu = Namestaj.GetById(namestaj.Id);
+        //namestajZaIzmenu.TipNamestajaId = tipNamestajaId;
+        //namestajZaIzmenu.Naziv = tbNaziv.Text;
+        ////namestajZaIzmenu.TipNamestajaId = ((TipNamestaja)cbTipNamestaja.SelectedItem).Id;
+        //break;
+        // }
+        //string naziv = tbNaziv.Text;
+
+        //    namestaj = new Namestaj()
+        //    {
+        //        Id = listaNamestaja.Count + 1,
+        //        Naziv = naziv
+        //    };
+
+        //    listaNamestaja.Add(namestaj);
+        //Projekat.Instance.Namestaj = listaNamestaja;
+
     }
 }

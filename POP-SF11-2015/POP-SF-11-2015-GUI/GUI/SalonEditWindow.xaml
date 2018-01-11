@@ -6,11 +6,10 @@
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
         mc:Ignorable="d"
         Title="SalonEditWindow"
+        Height="1080" Width="1920"
         WindowState="Maximized"
         WindowStyle="None">
     <Grid Background="#FF6771D4">
-        <Label x:Name="lblId" Content="Id" HorizontalAlignment="Center" Margin="-400,90,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48"/>
-        <TextBox x:Name="tbId" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,90,0,0" TextWrapping="Wrap" Text="{Binding Path=Id}" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold"/>
 
         <Label x:Name="lbNaziv" Content="Naziv" HorizontalAlignment="Center" Margin="-400,180,0,0" VerticalAlignment="Top" FontFamily="Arial Black" FontSize="48" Grid.RowSpan="2"/>
         <TextBox x:Name="tbNaziv" Grid.Column="1" HorizontalAlignment="Center" Height="49" Margin="400,180,0,0" TextWrapping="Wrap" Text="{Binding Path=Naziv}" VerticalAlignment="Top" Width="400" FontFamily="Arial Black" FontSize="40" FontWeight="Bold" Grid.Row="1"/>

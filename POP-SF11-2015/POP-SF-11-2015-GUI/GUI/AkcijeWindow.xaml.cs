@@ -38,7 +38,14 @@ namespace POP_SF_11_2015_GUI.GUI
             dgAkcije.IsSynchronizedWithCurrentItem = true;
             dgAkcije.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-            
+            if (ulogovaniKorisnik.TipKorisnika == TipKorisnika.Prodavac)
+            {
+                btnDodajAkciju.Visibility = Visibility.Hidden;
+                btnEdit.Visibility = Visibility.Hidden;
+                btnObrisi.Visibility = Visibility.Hidden;
+            }
+
+
         }
 
             private bool AkcijeFilter(object item)
@@ -97,7 +104,7 @@ namespace POP_SF_11_2015_GUI.GUI
                 {
                     if (a.Id == izabranaAkcija.Id)
                     {
-                        a.Obrisan = true;
+                        Akcija.Delete(a);
                         view.Refresh();
                         break;
                     }
@@ -106,7 +113,7 @@ namespace POP_SF_11_2015_GUI.GUI
                 //OsveziPrikaz();
             }
 
-            GenericSerializer.Serialize("akcije.xml", Projekat.Instance.Akcije);
+           // GenericSerializer.Serialize("akcije.xml", Projekat.Instance.Akcije);
         }
 
         private void dgAkcije_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
@@ -118,16 +125,16 @@ namespace POP_SF_11_2015_GUI.GUI
             if ((string)e.Column.Header == "ImeAkcije")
             {
                 e.Column.Header = "Ime Akcije";
-                e.Column.Width = 540;
+                e.Column.Width = 590;
             }
             if ((string)e.Column.Header == "Id")
             {
-                e.Column.Width = 100;
+                e.Cancel = true;
             }
             if ((string)e.Column.Header == "DatumPocetka")
             {
                 e.Column.Header = "Datum Pocetka";
-                e.Column.Width = 450;
+                e.Column.Width = 470;
 
                 if (e.PropertyType == typeof(DateTime))
                 {
@@ -142,7 +149,7 @@ namespace POP_SF_11_2015_GUI.GUI
             if ((string)e.Column.Header == "DatumZavrsetka")
             {
                 e.Column.Header = "Datum Zavrsetka";
-                e.Column.Width = 450;
+                e.Column.Width = 470;
 
                 if (e.PropertyType == typeof(DateTime))
                 {
@@ -158,25 +165,27 @@ namespace POP_SF_11_2015_GUI.GUI
 
             if ((string)e.Column.Header == "Popust")
             {
-                e.Column.Width = 250;
+                e.Column.Width = 260;
+                e.Column.Header = "Popust u %";
+
             }
         }
 
-        private void btnMore_Click(object sender, RoutedEventArgs e)
-        {
-            var izabranaAkcija = (Akcija)dgAkcije.SelectedItem;
+        //private void btnMore_Click(object sender, RoutedEventArgs e)
+        //{
+        //    var izabranaAkcija = (Akcija)dgAkcije.SelectedItem;
 
-            foreach (var a in Projekat.Instance.Akcije)
-            {
-                if (a.Id == izabranaAkcija.Id)
-                {
-                    IzabranaAkcijaWindow ia = new IzabranaAkcijaWindow(this.ulogovaniKorisnik);
-                    ia.Show();
-                    this.Close();
-                    break;
-                }
-            }
-        }
+        //    foreach (var a in Projekat.Instance.Akcije)
+        //    {
+        //        if (a.Id == izabranaAkcija.Id)
+        //        {
+        //            IzabranaAkcijaWindow ia = new IzabranaAkcijaWindow(this.ulogovaniKorisnik);
+        //            ia.Show();
+        //            this.Close();
+        //            break;
+        //        }
+        //    }
+        //}
 
 
     }

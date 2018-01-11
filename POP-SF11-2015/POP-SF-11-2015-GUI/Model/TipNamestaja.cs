@@ -172,6 +172,7 @@ namespace POP_SF11_2015.Model
         {
             tn.Obrisan = true;
             Update(tn);
+            
         }
 
         #endregion

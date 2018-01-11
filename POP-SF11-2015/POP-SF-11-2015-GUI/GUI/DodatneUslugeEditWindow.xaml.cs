@@ -41,27 +41,74 @@ namespace POP_SF_11_2015_GUI.GUI
 
             tbNaziv.DataContext = dodatnaUsluga;
             tbCena.DataContext = dodatnaUsluga;
-            tbId.DataContext = dodatnaUsluga;
-            tbId.IsEnabled = false;
 
         }
 
         private void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
-
-            var listaUsluga = Projekat.Instance.DodatneUsluge;
-
-            this.DialogResult = true;
-            if (operacija == TipOperacije.DODAVANJE)
+            if (dodatnaUsluga.Cena > 0 && dodatnaUsluga.Naziv != null && dodatnaUsluga.Cena < 9999999)
             {
-                dodatnaUsluga.Id = listaUsluga.Count + 1;
-                listaUsluga.Add(dodatnaUsluga);
+                var listaUsluga = Projekat.Instance.DodatneUsluge;
+                this.DialogResult = true;
+
+                switch (operacija)
+                {
+                    case TipOperacije.DODAVANJE:
+                        DodatnaUsluga.Create(dodatnaUsluga);
+                        break;
+
+                    case TipOperacije.IZMENA:
+
+                        /*
+                        foreach (var u in listaUsluga)
+                        {
+                            if (u.ID == usluga.ID)
+                            {
+
+
+                                u.Naziv = usluga.Naziv;
+                                u.Cena = usluga.Cena;
+                                
+                                break;
+                            }
+                        }
+                        */
+                        DodatnaUsluga.Update(dodatnaUsluga);
+                        break;
+
+                }
+                this.Close();
             }
+            else
+            {
+                if (dodatnaUsluga.Cena <= 0)
+                {
+                    MessageBox.Show("Nije dobra cena!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
 
-            GenericSerializer.Serialize("dodatne_usluge.xml", listaUsluga);
+                }
+                if (dodatnaUsluga.Naziv == null)
+                {
+                    MessageBox.Show("Niste uneli naziv!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+
+                if (dodatnaUsluga.Cena >= 9999999)
+                {
+                    MessageBox.Show("Uneli ste previsoku cenu!", "Greska", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+            //var listaUsluga = Projekat.Instance.DodatneUsluge;
+
+            //this.DialogResult = true;
+            //if (operacija == TipOperacije.DODAVANJE)
+            //{
+            //    dodatnaUsluga.Id = listaUsluga.Count + 1;
+            //    listaUsluga.Add(dodatnaUsluga);
+            //}
+
+            //GenericSerializer.Serialize("dodatne_usluge.xml", listaUsluga);
 
 
-            Close();
+            //Close();
 
             //var listaUsluga = Projekat.Instance.DodatneUsluge;
 

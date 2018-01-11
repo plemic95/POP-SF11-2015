@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:POP_SF_11_2015_GUI.GUI"
         mc:Ignorable="d"
         Title="AkcijeWindow"
+        Height="1080" Width="1920"
         WindowState="Maximized"
         WindowStyle="None">
     <Grid Background="#FF6771D4">
@@ -13,7 +14,7 @@
             <RowDefinition Height="127*"/>
             <RowDefinition Height="33*"/>
         </Grid.RowDefinitions>
-        <DataGrid Grid.Row="0" x:Name="dgAkcije" HorizontalAlignment="Left" Height="700" Margin="60,70,0,0" VerticalAlignment="Top" Width="1800" FontFamily="Arial Black" FontWeight="Bold" FontSize="36" IsReadOnly="True" AutoGeneratingColumn="dgAkcije_AutoGeneratingColumn">
+        <DataGrid Grid.Row="0" x:Name="dgAkcije" HorizontalAlignment="Left" Height="700" Margin="60,70,0,0" VerticalAlignment="Top" Width="1800" FontFamily="Arial Black" FontWeight="Bold" FontSize="36" IsReadOnly="True" AutoGeneratingColumn="dgAkcije_AutoGeneratingColumn" CanUserResizeRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False">
         </DataGrid>
         <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="-700,0,0,0" x:Name="btnDodajAkciju" Click="btnDodajAkciju_Click">
             <Button.Content>
@@ -26,11 +27,12 @@
                 <Image Source="/POP-SF-11-2015-GUI;component/Images/btnDelete.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
             </Button.Content>
         </Button>
-        <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="300,0,0,0" x:Name="btnMore" Click="btnMore_Click">
+      <!--  <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="300,0,0,0" x:Name="btnMore" Click="btnMore_Click">
             <Button.Content>
                 <Image Source="/POP-SF-11-2015-GUI;component/Images/btnMore.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>
             </Button.Content>
         </Button>
+        v-->
         <Button Grid.Row="1" Width="150" Height="150" HorizontalAlignment="Center" Margin="-200,0,0,0" x:Name="btnEdit" Click="btnEdit_Click">
             <Button.Content>
                 <Image Source="/POP-SF-11-2015-GUI;component/Images/btnEdit.png" Stretch="Fill" AllowDrop="True" IsHitTestVisible="True" Cursor="Hand"/>

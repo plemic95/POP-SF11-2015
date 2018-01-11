@@ -32,11 +32,16 @@ namespace POP_SF_11_2015_GUI.GUI
             InitializeComponent();
             this.ulogovaniKorisnik = ulogovaniKorisnik;
 
-            view = CollectionViewSource.GetDefaultView(Projekat.Instance.Salon);
+            view = CollectionViewSource.GetDefaultView(Projekat.Instance.SalonNamestaja);
             //dgSalon.ItemsSource = Projekat.Instance.Salon;
             dgSalon.ItemsSource = view;
             dgSalon.IsSynchronizedWithCurrentItem = true;
             dgSalon.ColumnWidth = new DataGridLength(1, DataGridLengthUnitType.Star);
+
+            if (ulogovaniKorisnik.TipKorisnika == TipKorisnika.Prodavac)
+            {
+                btnIzmeniSalon.Visibility = Visibility.Hidden;
+            }
 
         }
 
@@ -50,8 +55,8 @@ namespace POP_SF_11_2015_GUI.GUI
                 SalonEditWindow sw = new SalonEditWindow(izabraniSalon, SalonEditWindow.TipOperacije.IZMENA);
                 if (sw.ShowDialog() != true)
                 {
-                    int index = Projekat.Instance.Salon.IndexOf(izabraniSalon);
-                    Projekat.Instance.Salon[index] = old;
+                    int index = Projekat.Instance.SalonNamestaja.IndexOf(izabraniSalon);
+                    Projekat.Instance.SalonNamestaja[index] = old;
                 }
             }
 

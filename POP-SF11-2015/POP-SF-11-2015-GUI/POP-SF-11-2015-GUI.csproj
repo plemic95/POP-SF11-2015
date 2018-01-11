@@ -62,6 +62,9 @@
     <Compile Include="GUI\AkcijeWindow.xaml.cs">
       <DependentUpon>AkcijeWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\DetaljiProdaje.xaml.cs">
+      <DependentUpon>DetaljiProdaje.xaml</DependentUpon>
+    </Compile>
     <Compile Include="GUI\DodatneUslugeEditWindow.xaml.cs">
       <DependentUpon>DodatneUslugeEditWindow.xaml</DependentUpon>
     </Compile>
@@ -101,15 +104,25 @@
     <Compile Include="GUI\TipNamestajaEditWindow.xaml.cs">
       <DependentUpon>TipNamestajaEditWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TipNamestajaWindow.xaml.cs">
+      <DependentUpon>TipNamestajaWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="LoginWindow.xaml.cs">
       <DependentUpon>LoginWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\ProdateUsluge.cs" />
+    <Compile Include="Model\ProdatiNamestaj.cs" />
+    <Compile Include="Model\StavkaProdaje.cs" />
     <Compile Include="Utils\GenericSerializer.cs" />
     <Page Include="GUI\AkcijeEditWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\AkcijeWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\DetaljiProdaje.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -162,6 +175,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="GUI\TipNamestajaEditWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GUI\TipNamestajaWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -42,14 +42,18 @@ INSERT INTO Salon
       
 INSERT INTO Prodaja
     VALUES('02-12-2017', '101', 'Mile', 17000 );
---INSERT INTO Prodaja
-    --VALUES('06-19-2017', '105', 'Bili', 12000 );
+INSERT INTO Prodaja
+    VALUES('06-19-2017', '105', 'Bili', 12000 );
 --INSERT INTO Prodaja
     --VALUES('11-23-2017', '109', 'Cane', 10000 );
  
 
 INSERT INTO ProdatiNamestaj
     VALUES(1, 1)
+INSERT INTO ProdatiNamestaj
+    VALUES(2, 2)
+INSERT INTO ProdatiNamestaj
+    VALUES(2, 3)
  
  
 INSERT INTO ProdateUsluge

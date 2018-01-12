@@ -66,6 +66,7 @@ namespace POP_SF_11_2015_GUI.GUI
 
         public void btnSacuvaj_Click(object sender, RoutedEventArgs e)
         {
+            Prodaja.Create(prodaja);
             Close();
 
             //var listaProdaja = Projekat.Instance.Prodaje;
@@ -181,7 +182,8 @@ namespace POP_SF_11_2015_GUI.GUI
 
 
                prodaja.NamestajZaProdaju.Add(namestaj);
-               prodaja.UkupnaCena += namestaj.Cena *1.02 * Int32.Parse(tbKolicina.Text) + usluga.Cena;
+               prodaja.DodatnaUsluga.Add(usluga);
+               prodaja.UkupnaCena += namestaj.Cena * 1.20 * Int32.Parse(tbKolicina.Text) + usluga.Cena;
 
             // foreach (Namestaj nam in Projekat.Instance.Namestaji)
             // {
@@ -207,7 +209,7 @@ namespace POP_SF_11_2015_GUI.GUI
                 prodaja.BrojRacuna = tbBrojRacuna.Text;
 
                 Projekat.Instance.Prodaje.Add(prodaja);
-                Prodaja.Create(prodaja);
+                
 
               //  prodaja = new Prodaja();
             }

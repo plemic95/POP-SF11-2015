@@ -24,14 +24,14 @@ namespace POP_SF_11_2015_GUI.Model
                 SqlCommand cmd = con.CreateCommand();
                 //@naziv, @obrisan za sql injection, da se ne izvrsava kao poseban upit
                 //AkcijaID posle TipNamestajaID
-                cmd.CommandText = $"INSERT INTO ProdatiNamestaj (IDRacuna, IDNamestaja) VALUES (@IDRacuna, @IDNamestaja);";
+                cmd.CommandText = $"INSERT INTO ProdatiNamestaj (IDProdaje, IDNamestaja) VALUES (@IDProdaje, @IDNamestaja);";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();"; // metoda koja vrati id poslednjeg upisanog elementa
 
                 //kada ovde prosledis namestaj iz namestajWindow, ti bindingom za tip namestaja posaljes njemu ceo objekat
                 //u kompo boksu je samo lista objekata sa overridovanim to string da pokazuje naziv, ali ovde za tip namestaja stize ceo objekat
 
                 //cmd.Parameters.AddWithValue("TipNamestajaID", nam.IDTipaNamestaja);
-                cmd.Parameters.AddWithValue("IDRacuna", rac.Id);
+                cmd.Parameters.AddWithValue("IDProdaje", rac.Id);
                 cmd.Parameters.AddWithValue("IDNamestaja", nam.Id);
 
 

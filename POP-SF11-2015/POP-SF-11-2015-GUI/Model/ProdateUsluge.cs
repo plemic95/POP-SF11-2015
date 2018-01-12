@@ -25,7 +25,7 @@ namespace POP_SF_11_2015_GUI.Model
                 cmd.CommandText = $"INSERT INTO ProdateUsluge (IDProdaje, IDDodatneUsluge) VALUES (@IDProdaje, @IDDodatneUsluge);";
                 cmd.CommandText += "SELECT SCOPE_IDENTITY();"; // metoda koja vrati id poslednjeg upisanog elementa
 
-                cmd.Parameters.AddWithValue("IDRacuna", rac.Id);
+                cmd.Parameters.AddWithValue("IDProdaje", rac.Id);
                 cmd.Parameters.AddWithValue("IDDodatneUsluge", du.Id);
 
 

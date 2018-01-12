@@ -32,6 +32,7 @@ namespace POP_SF_11_2015_GUI.GUI
         {
 
             InitializeComponent();
+            this.ulogovaniKorisnik = ulogovaniKorisnik;
             this.racun = racun;
             //Napuni();
             viewStavkeNamestaja = CollectionViewSource.GetDefaultView(ProdatiNamestaj.StavkeNamestajaPoRacunu(racun));
